@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.top {
+    background-color: rgb(211, 208, 208);
+    height:30px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-elements {
+    width:70%;
+    display:flex;
+    justify-content: space-between;
+    
+}
+
+.navbar-outer {
+padding: 2%;
+border-bottom:1px solid rgb(185, 185, 185);
+}
+
+.inner-nav-items {
+display: flex;
+justify-content: space-between;
+}
+
+.flags {
+    margin-left:5%;
+    display:flex;
+    align-items: center;
+}
+
+.flags a img{
+    margin-right:20px;
+    border:1px solid rgb(235, 235, 235);
+    border-radius:10%;
+    box-shadow: 5px 3px 5px #aaaaaa;
+    height:45px;
+    width: 70px;
+    transition: ease-in-out;
+    transition-duration: 250ms;
+}
+
+.flags a img:hover{
+    transform: scale(1.1);
+}
+
+.mid-title {
+    align-items: center;
+    
+}
+
+
+.nav-links {
+    margin-right: 5%;
+}
+
+.nav-links ul{
+    display:flex;
+    list-style-type: none;
+}
+
+.nav-links ul li {
+    font-size: x-large;
+    margin-right: 1.5rem;
+}
+
+.nav-links ul li a{
+    color:black;
+    text-decoration: none;
+    transition: ease-in-out;
+    transition-duration: 250ms;
+
+}
+
+.nav-links ul li a:hover{
+    color:rgb(72, 1, 165) !important;
+    letter-spacing: 2px;
+}
