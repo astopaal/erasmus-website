@@ -30,7 +30,7 @@
                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_North_Macedonia.svg/1920px-Flag_of_North_Macedonia.svg.png" /></a>
 
             </div>
-            <div class="mid-title"> CAN NASIF</div>
+            <div class="mid-title">CAN NASIF 31</div>
             <div class="nav-links">
                 <ul>
                     <li><a href="#">Home</a></li>
