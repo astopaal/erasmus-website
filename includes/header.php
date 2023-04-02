@@ -31,6 +31,7 @@
 
             </div>
             <div class="mid-title">CAN NASIF 31</div>
+            <div class="mid-title">CAN NASIF 31</div>
             <div class="nav-links">
                 <ul>
                     <li><a href="#">Home</a></li>
