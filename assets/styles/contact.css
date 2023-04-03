@@ -7,6 +7,7 @@
 }
 
 .container {
+    margin-top: 185px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -19,6 +20,8 @@
     padding: 20px;
     display: flex;
     justify-content: space-between;
+    border-radius:10px;
+    box-shadow: 2px 2px 2px 2px #aaaaaa;
     
 }
 
