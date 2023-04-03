@@ -32,6 +32,7 @@
                         </div>
                         <div class="mid-title">High Quality Mobilities, Warm Hospitality</div></div>
             <div class="nav-links">
+
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About</a></li>
