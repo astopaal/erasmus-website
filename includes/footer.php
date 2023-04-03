@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Footer</title>
-    <link rel="stylesheet" href="../assets/style-foot.css">
+    <link rel="stylesheet" href="assets/style-foot.css">
 </head>
 <body>
 <footer class="footer">
@@ -20,21 +20,21 @@
     </div>
 
     <div class="contact">
-        <img src="../assets/icons/location.png">
+        <img src="gassets/icons/location.png">
         <p>Prof Dr Yaşar UÇAR caddesi Zabıta binası kat:2 no:204 Serik/Antalya/TÜRKİYE</p>
-        <img src="../assets/icons/mail.png">
+        <img src="gassets/icons/mail.png">
         <p>erasmusmobilityturkey@gmail.com</p>
         <div class="websites">
-            <a href="index.html"><img src="../assets/icons/facebook.png" alt="fb-photo"></a>
-            <a href="index.html"><img src="../assets/icons/instagram.png" alt="instagram-photo"></a>
-            <a href="index.html"><img src="../assets/icons/twitter.png" alt="twitter-photo"></a>
-            <a href="index.html"><img src="../assets/icons/linkedin.png" alt="linkedin-photo"></a>
+            <a href="index.html"><img src="assets/icons/facebook.png" alt="fb-photo"></a>
+            <a href="index.html"><img src="assets/icons/twitter.png" alt="twitter-photo"></a>
+            <a href="index.html"><img src="assets/icons/linkedin.png" alt="linkedin-photo"></a>
+            <a href="index.html"><img src="assets/icons/instagram.png" alt="instagram-photo"></a>
         </div>
     </div>
     <div class="copyright">
         <p>copyright©2022, erasmusmobilityturkey.com</p>
     </div>
-    
+
 </footer>
 </body>
 </html>
