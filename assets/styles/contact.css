@@ -8,6 +8,7 @@
 
 .container {
     margin-top: 185px;
+    margin-bottom: 5%;
     display: flex;
     justify-content: center;
     flex-direction: column;
