@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+footer {
+
+    
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-family: Arial, sans-serif;
+    flex-direction: column;
+    font-family: 'Open Sans', sans-serif
+}
+
+
+
+
+.head-contact {
+    border-bottom: 2px solid grey;
+}
+.contact {
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 3%;
+    display: flex;
+  }
+
+.contact h1 {
+
+    margin-top: -12px;
+    margin-left: 0;
+}
+
+.footer-left {
+    
+    margin-top: 70px;
+    
+}
+
+.footer-left p {
+    margin-top: 2%;
+    width: 270px; 
+    overflow: hidden; /* taşacak kısımları gizle. */
+    white-space: wrap; /* alt satırı gösterme, alt satıra inme. */
+    
+}
+
+.websites a img {
+    margin: 0;
+    margin-right: 2px;
+    box-shadow: 5px 3px 5px #aaaaaa;
+    transition: ease-in-out;
+    transition-duration: 250ms;
+}  
+.websites a img:hover {
+    transform: scale(1.1);
+}
+
+iframe {
+    max-width: 200%;
+    height: 350px;
+    width: 500px; /*IE8 bug fix*/
+    vertical-align: middle;
+    border-radius: 10px;
+    
+}
+
+.footer-right form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    
+    
+}
+
+.footer-right label {
+    font-weight: bold;
+}
+
+.footer-right input {
+    border-radius: 1%;
+    transition: ease-in-out;
+    transition-duration: 700ms;
+    height: 30px;
+}
+
+.footer-right input:hover  {
+    border-color: red;
+    transform: scale(1.01);
+    
+}
+
+.footer-right textarea {
+    border-radius: 4px;
+    height: 120px;
+    border-radius: 1%;
+    transition: ease-in-out;
+    transition-duration: 700ms;
+}
+.footer-right textarea:hover {
+    border-color: red;
+    transform: scale(1.01);
+}
+
+
+
+.copyright {
+    text-align: center;
+    border-top: 2px solid gray;
+    margin-top: 30px;
+
+}
+
+.contact input[type="submit"] {
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: white;
+    
+    border-radius: 5px;
+    height: 30px;
+    cursor: pointer;
+  }
+  
+  .contact input[type="submit"]:hover {
+    background-color: #3e8e41;
+  }
+
+  .name {
+    display: flex;
+    flex-direction: column;
+    width: 49%;
+    
+  }
+
+  .name-field {
+    display: flex;
+    justify-content: space-between;
+  }
+  
