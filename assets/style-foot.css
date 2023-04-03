@@ -1,0 +1,36 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.head-contact {
+    border-bottom: 2px solid grey;
+}
+
+.contact {
+    margin-top: 3%;
+}
+
+.copyright {
+    text-align: center;
+    border-top: 2px solid gray;
+    margin-top: 30px;
+}
+
+.websites a img {
+    margin-right: 2px;
+    box-shadow: 5px 3px 5px #aaaaaa;
+    transition: ease-in-out;
+    transition-duration: 250ms;
+}  
+.websites a img:hover {
+    transform: scale(1.1);
+}
+.comment {
+    margin-left: 100px;
+}
+
+input textarea {
+    margin: 10px 0 0 0;
+    width: 100%;
+    min-height: 2em;
+}
