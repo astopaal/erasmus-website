@@ -51,7 +51,7 @@
           <input id="email" type="email" required>
           <label for="comment">Message</label>
           <textarea name="" id="comment"></textarea>
-          <input type="submit" value="Gönder">
+          <input type="submit" value="Send">
         </form>
       </div>
     </div>
