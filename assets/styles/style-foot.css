@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 footer {
-
-    
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
@@ -11,9 +9,6 @@ footer {
     flex-direction: column;
     font-family: 'Open Sans', sans-serif
 }
-
-
-
 
 .head-contact {
     border-bottom: 2px solid grey;
@@ -41,12 +36,11 @@ footer {
     margin-top: 2%;
     width: 270px; 
     overflow: hidden; /* taşacak kısımları gizle. */
-    white-space: wrap; /* alt satırı gösterme, alt satıra inme. */
-    
+    /*white-space: wrap; !* alt satırı gösterme, alt satıra inme. *!*/
 }
 
 .websites a img {
-    margin: 0;
+
     margin-right: 2px;
     box-shadow: 5px 3px 5px #aaaaaa;
     transition: ease-in-out;
@@ -78,16 +72,13 @@ iframe {
 }
 
 .footer-right input {
-    border-radius: 1%;
     transition: ease-in-out;
     transition-duration: 700ms;
     height: 30px;
 }
 
 .footer-right input:hover  {
-    border-color: red;
     transform: scale(1.01);
-    
 }
 
 .footer-right textarea {
@@ -101,8 +92,6 @@ iframe {
     border-color: red;
     transform: scale(1.01);
 }
-
-
 
 .copyright {
     text-align: center;

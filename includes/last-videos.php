@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,54 +66,56 @@
     </style>
 
 </head>
+
 <body>
-<div class="video-container">
-    <h1>Last 4 Videos</h1>
-    <div class="video-field">
-        <div class="video-card">
-            <video width="450" height="200" controls poster="https://picsum.photos/450/253">
-                <source src="assets/videos/video1.mp4" type="video/mp4">
-            </video>
+    <div class="video-container">
+        <h1>Last 4 Videos</h1>
+        <div class="video-field">
+            <div class="video-card">
+                <video width="450" height="200" controls poster="https://picsum.photos/450/253">
+                    <source src="assets/videos/video1.mp4" type="video/mp4">
+                </video>
 
-            <div class="card-content">
-                <h2>Staff Mobility</h2>
-                <p>Higher Education Student Mobility</p>
+                <div class="card-content">
+                    <h2>Staff Mobility</h2>
+                    <p>Higher Education Student Mobility</p>
+                </div>
+            </div>
+            <div class="video-card">
+                <video width="450" height="200" controls poster="https://picsum.photos/450/253">
+                    <source src="assets/videos/video1.mp4" type="video/mp4">
+                </video>
+
+                <div class="card-content">
+                    <h2>Student Mobility</h2>
+                    <p>Study Abroad Programs</p>
+                </div>
+            </div>
+            <div class="video-card">
+                <video width="450" height="200" controls poster="https://picsum.photos/450/253">
+                    <source src="assets/videos/video1.mp4" type="video/mp4">
+                </video>
+
+                <div class="card-content">
+                    <h2>Alumni Interview</h2>
+                    <p>Life After Graduation</p>
+                </div>
+            </div>
+            <div class="video-card">
+                <video width="450" height="200" controls poster="https://picsum.photos/450/253">
+                    <source src="assets/videos/video1.mp4" type="video/mp4">
+                </video>
+
+                <div class="card-content">
+                    <h2>Faculty Interview</h2>
+                    <p>Teaching Philosophy</p>
+                </div>
             </div>
         </div>
-        <div class="video-card">
-            <video width="450" height="200" controls poster="https://picsum.photos/450/253">
-                <source src="assets/videos/video1.mp4" type="video/mp4">
-            </video>
-
-            <div class="card-content">
-                <h2>Student Mobility</h2>
-                <p>Study Abroad Programs</p>
-            </div>
-        </div>
-        <div class="video-card">
-            <video width="450" height="200" controls poster="https://picsum.photos/450/253">
-                <source src="assets/videos/video1.mp4" type="video/mp4">
-            </video>
-
-            <div class="card-content">
-                <h2>Alumni Interview</h2>
-                <p>Life After Graduation</p>
-            </div>
-        </div>
-        <div class="video-card">
-            <video width="450" height="200" controls poster="https://picsum.photos/450/253">
-                <source src="assets/videos/video1.mp4" type="video/mp4">
-            </video>
-
-            <div class="card-content">
-                <h2>Faculty Interview</h2>
-                <p>Teaching Philosophy</p>
-            </div>
+        <div class="all-videos-link">
+            <a href="#">See All Videos</a>
         </div>
     </div>
-    <div class="all-videos-link">
-        <a href="#">See All Videos</a>
-    </div>
-</div>
 </body>
+
 </html>
