@@ -4,12 +4,13 @@
     font-family: 'Open Sans', sans-serif;
 }
 
+
 .amazingslider-wrapper {
     margin-top: 30px !important;
 }
 
 .top {
-    background-color: rgb(211, 208, 208);
+    background-color: #ada2a2;
     height: 30px;
     display: flex;
     justify-content: center;
@@ -24,10 +25,11 @@
 
 }
 
+
 .navbar-outer {
     padding: 2%;
     border-bottom: 1px solid rgb(185, 185, 185);
-    background-color: white !important;
+    background-color: white ;
 }
 
 .inner-nav-items {
@@ -65,7 +67,6 @@
     font-weight: bolder;
     font-style: italic;
 }
-
 
 .nav-links {
     margin-right: 5%;
