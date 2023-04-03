@@ -8,3 +8,5 @@ require_once('pages/home.php');
 // $results = $db->runQuery($query);
 
 ?>
+
+<link rel="stylesheet" href="assets/styles/style.css">

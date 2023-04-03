@@ -2,6 +2,15 @@
 
 require_once('includes/header.php');
 require_once('includes/slider.php');
-require_once('includes/footer.php');
+
 
 ?>
+
+    <!doctype html>
+    <html lang="en">
+<body>
+<div>something...</div>
+</body>
+    </html>
+
+<?php require_once('includes/footer.php'); ?>

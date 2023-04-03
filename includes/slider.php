@@ -2,14 +2,11 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
-    <title>Amazing Slider</title>
-    
     <!-- Insert to your webpage before the </head> -->
     <script src="assets/sliderengine/jquery.js"></script>
     <script src="assets/sliderengine/amazingslider.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/sliderengine/amazingslider-1.css">
     <script src="assets/sliderengine/initslider-1.js"></script>
-    <link rel="stylesheet" href="assets/styles/style.css">
     <!-- End of head section HTML codes -->
     
 </head>

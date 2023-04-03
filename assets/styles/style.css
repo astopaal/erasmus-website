@@ -10,54 +10,59 @@
 
 .top {
     background-color: rgb(211, 208, 208);
-    height:30px;
-    display:flex;
+    height: 30px;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .top-elements {
-    width:70%;
-    display:flex;
+    width: 70%;
+    display: flex;
     justify-content: space-between;
-    color:white;
-    
+    color: white;
+
 }
 
 .navbar-outer {
-padding: 2%;
-border-bottom:1px solid rgb(185, 185, 185);
+    padding: 2%;
+    border-bottom: 1px solid rgb(185, 185, 185);
 }
 
 .inner-nav-items {
-display: flex;
-justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .flags {
-    margin-left:5%;
-    display:flex;
+    margin-left: 5%;
+    display: flex;
     align-items: center;
 }
 
-.flags a img{
-    margin-right:20px;
-    border:1px solid rgb(235, 235, 235);
-    border-radius:10%;
+.flags a img {
+    margin-right: 20px;
+    border: 1px solid rgb(235, 235, 235);
+    border-radius: 10%;
     box-shadow: 5px 3px 5px #aaaaaa;
-    height:45px;
+    height: 45px;
     width: 70px;
     transition: ease-in-out;
     transition-duration: 250ms;
 }
 
-.flags a img:hover{
+.flags a img:hover {
     transform: scale(1.1);
 }
 
 .mid-title {
+    display: flex;
     align-items: center;
-    font-size: xxx-large;
+    justify-content: center;
+    font-size: x-large;
+    white-space: nowrap;
+    font-weight: bolder;
+    font-style: italic;
 }
 
 
@@ -65,9 +70,18 @@ justify-content: space-between;
     margin-right: 5%;
 }
 
-.nav-links ul{
-    display:flex;
+.nav-links ul {
+    display: flex;
     list-style-type: none;
+}
+
+.nav-left {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-left div {
+    margin-left: 2%;
 }
 
 .nav-links ul li {
@@ -75,15 +89,16 @@ justify-content: space-between;
     margin-right: 1.5rem;
 }
 
-.nav-links ul li a{
-    color:black;
+.nav-links ul li a {
+    color: black;
     text-decoration: none;
     transition: ease-in-out;
     transition-duration: 250ms;
 
 }
 
-.nav-links ul li a:hover{
-    color:rgb(72, 1, 165) !important;
+.nav-links ul li a:hover {
+    color: rgb(72, 1, 165) !important;
     letter-spacing: 2px;
+    margin-left: 0.5rem;
 }
