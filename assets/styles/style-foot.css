@@ -78,14 +78,14 @@ iframe {
 }
 
 .footer-right input {
-    border-radius: 1%;
+    
     transition: ease-in-out;
     transition-duration: 700ms;
     height: 30px;
 }
 
 .footer-right input:hover  {
-    border-color: red;
+    
     transform: scale(1.01);
     
 }
