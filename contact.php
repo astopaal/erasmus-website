@@ -1,10 +1,24 @@
+<div class="header-wrapper">
+    <?php
+
+    require_once('includes/header.php');
+
+    ?>
+</div>
 <?php
-require_once('includes/header.php');
 require_once('pages/contactcontent.php')
-?>
+    ?>
 <style>
     body {
         margin: 0
+    }
+
+    .header-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
     }
 </style>
 

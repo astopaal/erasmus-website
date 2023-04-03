@@ -50,15 +50,5 @@
 
 </body>
 
-<script>
-    window.onscroll = function () {
-        if (scrollY > 100) {
-            console.log(scrollY)
-            document.getElementsByTagName("nav")[0].classList.add("scrolled");
-        } else {
-            document.getElementsByTagName("nav")[0].classList.remove("scrolled");
-        }
-    };
-</script>
 
 </html>
