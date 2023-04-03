@@ -4,7 +4,6 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-
 .amazingslider-wrapper {
     margin-top: 30px !important;
 }
@@ -24,7 +23,6 @@
     color: white;
 
 }
-
 
 .navbar-outer {
     padding: 2%;
@@ -69,6 +67,8 @@
 }
 
 .nav-links {
+    display:flex;
+    align-items: center;
     margin-right: 5%;
 }
 

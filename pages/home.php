@@ -1,13 +1,12 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style>
-
-
         @media (max-width: 767px) {
             .event-container {
                 flex-direction: column;
@@ -31,6 +30,7 @@
         .slider-wrapper {
             margin-top: 200px;
         }
+
         .event-container {
             display: flex;
             flex-direction: column;
@@ -40,7 +40,7 @@
 
         .events-title {
             text-align: center !important;
-            font-size:x-large;
+            
         }
 
         .events-field {
@@ -66,7 +66,7 @@
         }
 
         .event-card a {
-            font-size:x-large;
+            font-size: x-large;
             color: black;
             text-decoration: none;
             transition: linear;
@@ -80,69 +80,73 @@
 
         .event-card:hover {
             background-color: #383838;
-            color:white;
+            color: white;
         }
 
-        .event-card:hover a{
-            color:white;
+        .event-card:hover a {
+            color: white;
         }
 
-        .event-card:hover a:hover{
+        .event-card:hover a:hover {
             letter-spacing: 2px;
         }
     </style>
 </head>
+
 <body>
 
-<div class="header-wrapper">
-    <?php require_once('includes/header.php'); ?>
-</div>
-<div class="slider-wrapper">
-    <?php
-    require_once('includes/slider.php');
+    <div class="header-wrapper">
+        <?php require_once('includes/header.php'); ?>
+    </div>
+    <div class="slider-wrapper">
+        <?php
+        require_once('includes/slider.php');
 
-    $eventId = 1;
+        $eventId = 1;
 
-    ?>
-</div>
+        ?>
+    </div>
 
 
-<div class="event-container">
-    <p class="events-title">Erasmus+ Mobilities</p>
-    <div class="events-field">
-        <div class="event-card">
-            <img src="https://picsum.photos/450" alt="evet-img"/>
-            <div>
-                <p class="title">Staff Mobility</p>
-                <p class="description">Higher Education Student Mobility</p>
-                <a href="/events/<?php echo $eventId ?>">Apply now</a>
-                <hr>
+    <div class="event-container">
+        <h1 class="events-title">Erasmus+ Mobilities</h1>
+        <div class="events-field">
+            <div class="event-card">
+                <img src="https://picsum.photos/450" alt="evet-img" />
+                <div>
+                    <p class="title">Staff Mobility</p>
+                    <p class="description">Higher Education Student Mobility</p>
+                    <a href="/events/<?php echo $eventId ?>">Apply now</a>
+                    <hr>
+                </div>
             </div>
-        </div>
-        <div class="event-card">
-            <img src="https://picsum.photos/450" alt="evet-img"/>
-            <div>
-                <p class="title">Staff Mobility</p>
-                <p class="description">Higher Education Student Mobility</p>
-                <a href="/events/<?php echo $eventId ?>">Apply now</a>
-                <hr>
+            <div class="event-card">
+                <img src="https://picsum.photos/450" alt="evet-img" />
+                <div>
+                    <p class="title">Staff Mobility</p>
+                    <p class="description">Higher Education Student Mobility</p>
+                    <a href="/events/<?php echo $eventId ?>">Apply now</a>
+                    <hr>
+                </div>
             </div>
-        </div>
-        <div class="event-card">
-            <img src="https://picsum.photos/450" alt="evet-img"/>
-            <div>
-                <p class="title">Staff Mobility</p>
-                <p class="description">Higher Education Student Mobility</p>
-                <a href="/events/<?php echo $eventId ?>">Apply now</a>
-                <hr>
+            <div class="event-card">
+                <img src="https://picsum.photos/450" alt="evet-img" />
+                <div>
+                    <p class="title">Staff Mobility</p>
+                    <p class="description">Higher Education Student Mobility</p>
+                    <a href="/events/<?php echo $eventId ?>">Apply now</a>
+                    <hr>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
-<div> <?php require_once('includes/last-videos.php'); ?> </div>
+    <div>
+        <?php require_once('includes/last-videos.php'); ?>
+    </div>
 </body>
+
 </html>
 
 
