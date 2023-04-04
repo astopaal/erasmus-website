@@ -27,11 +27,10 @@
                     vero atque amet corporis! Soluta illum facere consequuntur magni. Ullam dolorem repudiandae cumque
                     voluptate consequatur consectetur, eos provident necessitatibus reiciendis corrupti!</p>
                 <div class="data">
-                    <a href="#" class="hire">Hire Me</a>
+                    <a href="#" class="hire">Contact us</a>
                 </div>
             </div>
         </div>
     </section>
 </body>
-
 </html>
