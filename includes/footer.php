@@ -39,21 +39,21 @@
       </div>
       <div class="footer-right">
         <h1>Contact</h1>
-        <form>
+        <form method="POST">
           <div class="name-field">
             <div class="name">
               <label for="name">First Name</label>
-              <input id="name" type="text">
+              <input id="name" name="name" type="text">
             </div>
             <div class="name">
               <label for="surname">Last Name</label>
-              <input id="surname" type="text">
+              <input id="surname" name="surname" type="text">
             </div>
           </div>
           <label for="email">Email *</label>
-          <input id="email" type="email" required>
+          <input id="email" name="email" type="email" required>
           <label for="comment">Message</label>
-          <textarea name="" id="comment"></textarea>
+          <textarea name="comment" id="comment"></textarea>
           <input type="submit" value="Send">
         </form>
       </div>
@@ -61,7 +61,22 @@
     <div class="copyright">
       <p>copyright©2023, denemesirket.com</p>
     </div>
+<?php 
+require_once("db/dbhelper.php");
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
+  $name = $_POST["name"];
+  $surname = $_POST["surname"];
+  $email = $_POST["email"];
+  $comment = $_POST["comment"];
+  $db = new DBController();
+  $query = "insert into messages (name, surname, mail, message, okundu_mu) values ('$name' , '$surname' , '$email' , '$comment' , 0 ) ";
+  $insert = $db->insertQuery($query);
+  if(isset($insert)) {
+    echo '<script>alert("We have received your message, we will return as soon as possible by e-mail or phone."); window.location.href = "index.php";</script>';
+} 
+}
+?>
   </footer>
 </body>
 
