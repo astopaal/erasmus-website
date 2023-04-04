@@ -14,33 +14,41 @@
         <h1 class="events-title">Events</h1>
         <div class="events-field">
 
-            <div class="event-card">
-                <img src="https://picsum.photos/450" alt="event-img" />
-                <div>
-                    <p class="title">Staff Mobility</p>
-                    <p class="description">Higher Education Student Mobility</p>
-                    <a href="/events/<?php echo $eventId ?>">See more</a>
-                    <hr>
+
+            <?php
+
+            require_once('db/dbhelper.php');
+            $db = new DBController();
+            $query = "SELECT * FROM events";
+            $results = $db->runQuery($query);
+
+            ?>
+
+            <?php
+
+            foreach ($results as $result) {
+                ?>
+
+                <div class="event-card">
+                    <img src=<?php echo $result['img'] ?> alt="event-img" />
+                    <div>
+                        <p class="title">
+                            <?php echo $result['title'] ?>
+                        </p>
+                        <p class="description">
+                            <?php echo $result['description'] ?>
+                        </p>
+                        <a href="/events/<?php echo $result['id'] ?>"><?php echo $result['buttonText'] ?></a>
+                        <hr>
+                    </div>
                 </div>
-            </div>
-            <div class="event-card">
-                <img src="https://picsum.photos/450" alt="evet-img" />
-                <div>
-                    <p class="title">Staff Mobility</p>
-                    <p class="description">Higher Education Student Mobility</p>
-                    <a href="/events/<?php echo $eventId ?>">See more</a>
-                    <hr>
-                </div>
-            </div>
-            <div class="event-card">
-                <img src="https://picsum.photos/450" alt="evet-img" />
-                <div>
-                    <p class="title">Staff Mobility</p>
-                    <p class="description">Higher Education Student Mobility</p>
-                    <a href="/events/<?php echo $eventId ?>">See more</a>
-                    <hr>
-                </div>
-            </div>
+
+                <?php
+            }
+            ?>
+
+
+
         </div>
     </div>
 </body>

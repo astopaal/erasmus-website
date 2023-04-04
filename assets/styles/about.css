@@ -15,9 +15,9 @@
 }
 
 .about {
-    margin-top: 60px !important;
+    margin-top: 10% !important;
     width: 1131px;
-    max-width: 85%;
+    max-width: 100%;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -46,6 +46,7 @@ span {
 }
 
 .text p {
+    width: 140%;
     font-size: 18px;
     line-height: 25px;
     letter-spacing: 1px;

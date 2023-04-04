@@ -24,7 +24,7 @@
 
     require_once('db/dbhelper.php');
     $db = new DBController();
-    $query = "SELECT * FROM events";
+    $query = "SELECT * FROM events LIMIT 3  ";
     $results = $db->runQuery($query);
 
     ?>
