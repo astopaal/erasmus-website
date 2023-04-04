@@ -11,20 +11,23 @@
 
 <body>
   <footer class="footer">
-    <hr />
-
+    <br>
     <div class="contact">
       <div class="footer-left">
-        <img src="assets/icons/location.png">
-        <p>Prof Dr Yaşar UÇAR caddesi Zabıta binası kat:2 no:204 Serik/Antalya/TÜRKİYE</p>
-        <img src="assets/icons/mail.png">
-        <p>erasmusmobilityturkey@gmail.com</p>
-        <div class="websites">
+        <div>
+          <img src="assets/icons/location.png">
+          <p>Prof Dr Yaşar UÇAR caddesi Zabıta binası kat:2 no:204 Serik/Antalya/TÜRKİYE</p>
+          <img src="assets/icons/mail.png">
+          <p>erasmusmobilityturkey@gmail.com</p>
+          <div class="websites">
 
-          <a href="https://www.facebook.com/username/"><img src="assets/icons/facebook.png" alt="fb-photo"></a>
-          <a href="https://twitter.com/username"><img src="assets/icons/twitter.png" alt="twitter-photo"></a>
-          <a href="https://www.linkedin.com/in/username/"><img src="assets/icons/linkedin.png" alt="linkedin-photo"></a>
-          <a href="https://www.instagram.com/username/"><img src="assets/icons/instagram.png" alt="instagram-photo"></a>
+            <a href="https://www.facebook.com/username/"><img src="assets/icons/facebook.png" alt="fb-photo"></a>
+            <a href="https://twitter.com/username"><img src="assets/icons/twitter.png" alt="twitter-photo"></a>
+            <a href="https://www.linkedin.com/in/username/"><img src="assets/icons/linkedin.png"
+                alt="linkedin-photo"></a>
+            <a href="https://www.instagram.com/username/"><img src="assets/icons/instagram.png"
+                alt="instagram-photo"></a>
+          </div>
         </div>
       </div>
 

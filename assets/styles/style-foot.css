@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 footer {
-    padding: 20px;
+    height: 40%;
+    padding: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -14,57 +15,55 @@ footer {
 .head-contact {
     border-bottom: 1px solid grey;
 }
+
 .contact {
     width: 100%;
     justify-content: space-around;
-    margin-top: 3%;
     display: flex;
-  }
+}
 
 .contact h1 {
-
     margin-top: -12px;
     margin-left: 0;
 }
 
 .footer-left {
-    
-    margin-top: 70px;
-    
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .footer-left p {
     margin-top: 2%;
-    width: 270px; 
-    overflow: hidden; 
+    width: 270px;
+    overflow: hidden;
 }
 
 .websites a img {
-
     margin-right: 2px;
     box-shadow: 5px 3px 5px #aaaaaa;
     transition: ease-in-out;
     transition-duration: 250ms;
-}  
+}
+
 .websites a img:hover {
     transform: scale(1.1);
 }
 
 iframe {
     max-width: 200%;
-    height: 350px;
-    width: 500px; 
+    height: 250px;
+    width: 400px;
     vertical-align: middle;
     border-radius: 10px;
-    
 }
 
 .footer-right form {
     display: flex;
     flex-direction: column;
-    width: 400px;
-    
-    
+    width: 300px;
+    height: 200px;
 }
 
 .footer-right label {
@@ -79,18 +78,19 @@ iframe {
     border-color: rgb(26, 25, 25);
 }
 
-.footer-right input:hover  {
+.footer-right input:hover {
     transform: scale(1.01);
 }
 
 .footer-right textarea {
     border-radius: 3px;
     height: 120px;
-    width: 393px;
+    width: 300px;
     margin-left: 1px;
     transition: ease-in-out;
     transition-duration: 700ms;
 }
+
 .footer-right textarea:hover {
     border-color: rgb(26, 25, 25);
     transform: scale(1.01);
@@ -100,32 +100,28 @@ iframe {
     text-align: center;
     border-top: 1px solid gray;
     margin-top: 30px;
-
 }
 
 .contact input[type="submit"] {
     margin-top: 10px;
     background-color: #ada2a2;
     color: white;
-    
     border-radius: 5px;
     height: 30px;
     cursor: pointer;
-  }
-  
-  .contact input[type="submit"]:hover {
-    background-color: #3e8e41;
-  }
+}
 
-  .name {
+.contact input[type="submit"]:hover {
+    background-color: #3e8e41;
+}
+
+.name {
     display: flex;
     flex-direction: column;
     width: 49%;
-    
-  }
+}
 
-  .name-field {
+.name-field {
     display: flex;
     justify-content: space-between;
-  }
-  
+}
