@@ -1,12 +1,6 @@
 <?php
 require_once('db/dbhelper.php');
 require_once('pages/home.php');
-
-// $db = new DBController();
-
-// $query = "SELECT * FROM test";
-// $results = $db->runQuery($query);
-
 ?>
 
 <!doctype html>
@@ -19,7 +13,7 @@ require_once('pages/home.php');
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="assets/styles/style.css">
     <script src="assets/scripts/script.js"></script>
-    <script>
+    <!-- <script>
         window.onscroll = function () {
             console.log(scrollY)
             if (scrollY > 30) {
@@ -31,7 +25,7 @@ require_once('pages/home.php');
                 }
             }
         };
-    </script>
+    </script> -->
     <title>Erasmus+</title>
 </head>
 

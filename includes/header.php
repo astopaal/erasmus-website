@@ -37,12 +37,24 @@
             </div>
             <div class="nav-links">
 
+                <?php
+
+                require_once('db/dbhelper.php');
+                $db = new DBController();
+                $query = "SELECT * FROM navlinks WHERE isActive=1";
+                $results = $db->runQuery($query);
+
+                ?>
+
                 <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="about.php">About</a></li>
-                    <li><a href="events.php">Events</a></li>
-                    <li><a href="#">Blogs</a></li>
-                    <li><a href="contact.php">Contact</a></li>
+
+                    <?php
+
+                    foreach ($results as $result) {
+                        ?>
+                        <li><a href=<?php echo $result['url'] ?>><?php echo $result['name'] ?></a></li>
+                    <?php } ?>
+
                 </ul>
             </div>
         </div>

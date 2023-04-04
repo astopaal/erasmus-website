@@ -9,23 +9,11 @@
 </head>
 
 <body>
+    <div class="event-event-container">
 
-    <!-- <div class="header-wrapper">
-        <?php require_once('includes/header.php'); ?>
-    </div>
-    <div class="slider-wrapper">
-        <?php
-        require_once('includes/slider.php');
-
-        $eventId = 1;
-
-        ?>
-    </div> -->
-
-
-    <div class="event-container">
         <h1 class="events-title">Events</h1>
         <div class="events-field">
+
             <div class="event-card">
                 <img src="https://picsum.photos/450" alt="event-img" />
                 <div>

@@ -16,21 +16,38 @@
 
 <body>
     <section class="about-us">
+
+        <?php
+
+        require_once('db/dbhelper.php');
+        $db = new DBController();
+        $query = "SELECT * FROM about";
+        $result = $db->runQuery($query);
+
+        ?>
         <div class="about">
-            <img src="https://picsum.photos/500/900" class="pic">
+            <img src=<?php echo $result[0]['img'] ?> class="pic">
             <div class="text">
-                <h2>About Us</h2>
-                <span> Erasmus </span>
-                <h5>Company </h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita natus ad sed harum itaque ullam
-                    enim quas, veniam accusantium, quia animi id eos adipisci iusto molestias asperiores explicabo cum
-                    vero atque amet corporis! Soluta illum facere consequuntur magni. Ullam dolorem repudiandae cumque
-                    voluptate consequatur consectetur, eos provident necessitatibus reiciendis corrupti!</p>
+                <h2>
+                    <?php echo $result[0]['big_title'] ?>
+                </h2>
+                <span>
+                    <?php echo $result[0]['bluetext'] ?>
+                </span>
+                <h5>
+                    <?php echo $result[0]['small_title'] ?>
+                </h5>
+                <p>
+                    <?php echo $result[0]['content'] ?>
+                </p>
                 <div class="data">
-                    <a href="#" class="hire">Contact us</a>
+                    <a href="contact.php" class="hire">
+                        <?php echo $result[0]['button_text'] ?>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 </body>
+
 </html>

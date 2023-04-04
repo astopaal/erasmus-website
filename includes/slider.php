@@ -55,11 +55,12 @@
         /* Caption text */
         .text {
             color: #f2f2f2;
-            font-size: 15px;
+            font-size: 31px;
             padding: 8px 12px;
             position: absolute;
             bottom: 8px;
             width: 100%;
+            background-color:rgba(0, 0, 0, 0.69);
             text-align: center;
         }
 
@@ -115,24 +116,29 @@
 
 <div class="slideshow-container">
 
+<?php
+
+    require_once('db/dbhelper.php');
+    $db = new DBController();
+    $query = "SELECT * FROM slider_images";
+    $results = $db->runQuery($query);
+    $query2 = "SELECT COUNT(*) as count from slider_images";
+    $count = $db->runQuery($query2);
+    ?>
+
+<?php
+
+foreach ($results as $key => $result) {
+    ?>
     <div class="mySlides fade">
-        <div class="numbertext">1 / 3</div>
-        <img src="assets/images/sd1.jpg" style="width:100%">
-        <div class="text">Caption Text</div>
+        <div class="numbertext"><?php echo $key+1?>/<?php echo $count[0]['count']?></div>
+        <img src=<?php echo $result['img'] ?> style="width:100%">
+        <div class="text"><?php echo $result['captionText'] ?></div>
     </div>
 
-    <div class="mySlides fade">
-        <div class="numbertext">2 / 3</div>
-        <img src="assets/images/sd2.jpg" style="width:100%">
-        <div class="text">Caption Two</div>
-    </div>
+<?php } ?>
 
-    <div class="mySlides fade">
-        <div class="numbertext">3 / 3</div>
-        <img src="assets/images/sd3.jpg" style="width:100%">
-        <div class="text">Caption Three</div>
-    </div>
-
+    
     <a class="prev" onclick="plusSlides(-1)">❮</a>
     <a class="next" onclick="plusSlides(1)">❯</a>
 

@@ -15,7 +15,7 @@ class DBController
     function connectDB()
     {
         $conn = mysqli_connect($this->host, $this->user, $this->password, $this->database);
-        if($conn) {echo "db bağlantısı başarılı";} else {echo "db bağlantı hatası";}
+        if(!$conn) {echo "db bağlantı hatası";}
         return $conn;
     }
     function runQuery($query)
