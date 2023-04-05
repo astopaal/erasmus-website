@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog</title>
-    <link rel="stylesheet" href="../assets/styles/blog.css">
+    <link rel="stylesheet" href="assets/styles/blog.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
+    <link rel="stylesheet" href="assets/styles/style-foot.css">
 </head>
 <body>
     <div class="blog">
@@ -14,6 +16,16 @@
       </div>
       
       <div class="row">
+
+      <?php
+
+require_once('db/dbhelper.php');
+$db = new DBController();
+$query = "SELECT * FROM blog";
+$results = $db->runQuery($query);
+
+?>
+
         <div class="leftcolumn">
           <div class="card">
             <h2>TITLE HEADING</h2>
@@ -27,23 +39,14 @@
             <div class="fakeimg" style="height:200px;">Image</div>
             <p>Some text..</p>
           </div>
-        </div>
-        <div class="rightcolumn">
           <div class="card">
-            <h2>About Me</h2>
-            <div class="fakeimg" style="height:100px;">Image</div>
-            <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-          </div>
-          <div class="card">
-            <h3>Popular Post</h3>
-            <div class="fakeimg">Image</div><br>
-            <div class="fakeimg">Image</div><br>
-            <div class="fakeimg">Image</div>
-          </div>
-          <div class="card">
-            <h3>Follow Me</h3>
+            <h2>TITLE HEADING</h2>
+            <h5>Title description, Sep 2, 2017</h5>
+            <div class="fakeimg" style="height:200px;">Image</div>
             <p>Some text..</p>
           </div>
+        </div>
+        
         </div>
       </div>
     </div>
