@@ -1,0 +1,63 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family:  sans-serif;
+    padding: 20px;
+    background: #cfcfcf;
+  }
+  
+  /* Header/Blog Title */
+  .header {
+    padding: 30px;
+    font-size: 30px;
+    margin-left: 100px;
+    
+  }
+  
+ 
+  
+ 
+  
+  /* Fake image */
+  .fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  /* Add a card effect for articles */
+  .card {
+    background-color: white;
+    padding: 20px;
+    width: 80%;
+    margin-top: 20px;
+    transition: ease-in-out;
+    transition-duration: 200ms;
+  }
+
+  .card:hover {
+    transform: scale(1.0050);
+  }
+  
+  .row{
+
+    justify-content: center;
+    margin-left: 200px;
+  }
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+ 
+  
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {
+      width: 100%;
+      padding: 0;
+    }
+  }
