@@ -5,20 +5,17 @@
   body {
     font-family:  sans-serif;
     padding: 20px;
-    background: #cfcfcf;
+    
   }
   
   /* Header/Blog Title */
-  .header {
+  .header_blog {
+    color: black;
     padding: 30px;
     font-size: 30px;
     margin-left: 100px;
     
   }
-  
- 
-  
- 
   
   /* Fake image */
   .fakeimg {
@@ -35,6 +32,8 @@
     margin-top: 20px;
     transition: ease-in-out;
     transition-duration: 200ms;
+    border: 2px solid #aaa;
+    border-radius: 5px;
   }
 
   .card:hover {
@@ -42,9 +41,10 @@
   }
   
   .row{
-
+  
     justify-content: center;
     margin-left: 200px;
+    margin-bottom: 20px;
   }
   .row:after {
     content: "";
