@@ -61,86 +61,39 @@
             <div class="container-fluid pt-4 px-4">
                 <div style="justify-content:center; flex-wrap: wrap;" class="row g-4">
 
-
+                    <!-- about form başlangıç -->
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Tüm bloglar</h6>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Blog ID</th>
-                                        <th scope="col">Blog adı</th>
-                                        <th scope="col">Ekleme Tarihi</th>
-                                        <th scope="col">Durum</th>
-                                        <th scope="col">İşlemler</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>İtalya hakkında bilgiler</td>
-                                        <td>14/11/2023</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <div class="btn-group" role="group">
-                                                <button type="button" class="btn btn-warning">Düzenle</button>
-                                                <button type="button" class="btn btn-danger">Sil</button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>İtalya hakkında bilgiler</td>
-                                        <td>14/11/2023</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <div class="btn-group" role="group">
-                                                <button type="button" class="btn btn-warning">Düzenle</button>
-                                                <button type="button" class="btn btn-danger">Sil</button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>İtalya hakkında bilgiler</td>
-                                        <td>14/11/2023</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <div class="btn-group" role="group">
-                                                <button type="button" class="btn btn-warning">Düzenle</button>
-                                                <button type="button" class="btn btn-danger">Sil</button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">BLOG YAZISI OLUŞTUR</h6>
-                            <form>
+                            <h6 class="mb-4">About Sayfası Ayarları</h6>
+                            <form method="POST">
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Başlık</label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1"
+                                    <label for="exampleInputEmail1" class="form-label">Büyük Başlık:</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1"
                                         aria-describedby="emailHelp">
 
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">İçerik</label>
-                                    <textarea style="resize:none;" rows="10" type="text" class="form-control"
+                                    <label for="exampleInputPassword1" class="form-label">Mavi yazı:</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">Küçük Başlık:</label>
+                                    <textarea style="resize:none;" rows="6" type="text" class="form-control"
                                         id="exampleInputPassword1"> </textarea>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="formFile" class="form-label">Resim</label>
+                                    <label for="exampleInputPassword1" class="form-label">İleitşim Buton Yazısı:</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="formFile" class="form-label">Fotoğraf seç:</label>
                                     <input class="form-control bg-dark" type="file" id="formFile">
                                 </div>
-
-                                <button type="submit" class="btn btn-info">Kaydet</button>
+                                <button type="submit" class="btn btn-primary">Kaydet</button>
                             </form>
                         </div>
                     </div>
+                    <!-- about form bitiş -->
 
                 </div>
             </div>
