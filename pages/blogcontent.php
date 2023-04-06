@@ -12,43 +12,33 @@
 </head>
 
 <body>
-  <div class="blog">
-    <div class="header">
-      <h2>Blog Name</h2>
-    </div>
 
-    <div class="row">
-
-      <?php
-
-      require_once('db/dbhelper.php');
-      $db = new DBController();
-      $query = "SELECT * FROM blog";
-      $results = $db->runQuery($query);
-
-      ?>
-
-      <div class="leftcolumn">
-        <div class="card">
-          <h2>TITLE HEADING</h2>
-          <h5>Title description, Dec 7, 2017</h5>
-          <div class="fakeimg" style="height:200px;">Image</div>
-          <p>Some text..</p>
+    <div class="blog">
+        <div class="header_blog">
+            <h2>Blog Name</h2>
         </div>
-        <div class="card">
-          <h2>TITLE HEADING</h2>
-          <h5>Title description, Sep 2, 2017</h5>
-          <div class="fakeimg" style="height:200px;">Image</div>
-          <p>Some text..</p>
+      
+        <div class="row">
+            <?php
+                require_once('db/dbhelper.php');
+                $db = new DBController();
+                $query = "SELECT * FROM blog";
+                $results = $db->runQuery($query);
+                
+                foreach ($results as $result) {
+            ?>
+            <div class="leftcolumn">
+                <div class="card">
+                    <h2 class="blog_title"><?php echo $result['blog_title']?></h2>
+                    <h5 class="blog_date"><?php echo $result['blog_date']?></h5>
+                    <div class="fakeimg" style="height:200px;">
+                        <img src=<?php echo $result['blog_img']?>> 
+                    </div>
+                    <p class="blog_desc"><?php echo $result['blog_desc']?></p>
+                </div>
+            </div>
+            <?php } ?>
         </div>
-        <div class="card">
-          <h2>TITLE HEADING</h2>
-          <h5>Title description, Sep 2, 2017</h5>
-          <div class="fakeimg" style="height:200px;">Image</div>
-          <p>Some text..</p>
-        </div>
-      </div>
-
     </div>
   </div>
   </div>
