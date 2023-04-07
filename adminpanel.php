@@ -195,7 +195,7 @@
                                     }
                                 }
 
-                                $sql = "INSERT INTO events (img, title, content, description, is_active, is_deleted ) VALUES ('$target_file','$title', '$content',  '$description', 1, 0)";
+                                $sql = "INSERT INTO events (img, title, content, description, buttonText, is_active, is_deleted ) VALUES ('$target_file','$title', '$content', '$buttonText', '$description', 1, 0)";
                                 $insertid = $db->insertQuery($sql);
                                 
                                 if (isset($insert_id)) {
