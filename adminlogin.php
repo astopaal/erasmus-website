@@ -1,3 +1,16 @@
+<?php
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+    header('location: adminpanel.php');
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,7 +91,9 @@
         <?php
         // login.php
         
-        session_start();
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
         include('db/dbhelper.php');
 
         if (isset($_POST['submit'])) {

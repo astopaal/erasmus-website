@@ -1,3 +1,15 @@
+<?php
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header('Location: adminlogin.php');
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -197,7 +209,7 @@
 
                                 $sql = "INSERT INTO events (img, title, content, description, buttonText, is_active, is_deleted ) VALUES ('$target_file','$title', '$content', '$buttonText', '$description', 1, 0)";
                                 $insertid = $db->insertQuery($sql);
-                                
+
                                 if (isset($insert_id)) {
                                     echo '<script>alert("eklendi"); window.location.href = "adminpanel.php";</script>';
                                 }
