@@ -61,22 +61,25 @@
     <div class="copyright">
       <p>copyright©2023, denemesirket.com</p>
     </div>
-<?php 
-require_once("db/dbhelper.php");
-if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    <?php
+    require_once("db/dbhelper.php");
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-  $name = $_POST["name"];
-  $surname = $_POST["surname"];
-  $email = $_POST["email"];
-  $comment = $_POST["comment"];
-  $db = new DBController();
-  $query = "insert into messages (name, surname, mail, message, okundu_mu) values ('$name' , '$surname' , '$email' , '$comment' , 0 ) ";
-  $insert = $db->insertQuery($query);
-  if(isset($insert)) {
-    echo '<script>alert("We have received your message, we will return as soon as possible by e-mail or phone."); window.location.href = "index.php";</script>';
-} 
-}
-?>
+      $name = $_POST["name"];
+      $surname = $_POST["surname"];
+      $email = $_POST["email"];
+      $comment = $_POST["comment"];
+      $db = new DBController();
+      $query = "insert into messages (name, surname, mail, message, okundu_mu) values ('$name' , '$surname' , '$email' , '$comment' , 0 ) ";
+      $insert = $db->insertQuery($query);
+      if (isset($insert)) {
+        echo '<script>alert("We have received your message, we will return as soon as possible by e-mail or phone."); window.location.href = "index.php";</script>';
+      }
+      else{
+        '<script>alert("We have received your message, we will return as soon as possible by e-mail or phone."); window.location.href = "index.php";</script>';
+      }
+    }
+    ?>
   </footer>
 </body>
 

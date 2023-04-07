@@ -45,14 +45,14 @@
 
 
         <!-- sidebar -->
-        <?php require_once('sidebar.php') ?>
+        <?php require_once('adminsidebar.php') ?>
         <!-- sidebar bitiş -->
 
 
         <!-- Content Start -->
         <div class="content">
             <!-- Navbar Start -->
-            <?php require_once('navbar.php') ?>
+            <?php require_once('adminnavbar.php') ?>
             <!-- Navbar End -->
 
 
@@ -119,25 +119,82 @@
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-secondary rounded h-100 p-4">
                             <h6 class="mb-4">BLOG YAZISI OLUŞTUR</h6>
-                            <form>
+                            <form action="POST">
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Başlık</label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1"
+                                    <input name="title" type="text" class="form-control" id="exampleInputEmail1"
                                         aria-describedby="emailHelp">
 
                                 </div>
                                 <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">Açıklama</label>
+                                    <input name="description" type="text" class="form-control" id="exampleInputEmail1"
+                                        aria-describedby="emailHelp">
+                                </div>
+                                <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">İçerik</label>
-                                    <textarea style="resize:none;" rows="10" type="text" class="form-control"
-                                        id="exampleInputPassword1"> </textarea>
+                                    <textarea name="content" style="resize:none;" rows="10" type="text"
+                                        class="form-control" id="exampleInputPassword1"></textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">Resim</label>
-                                    <input class="form-control bg-dark" type="file" id="formFile">
+                                    <input name="img" class="form-control bg-dark" type="file" id="formFile">
                                 </div>
 
                                 <button type="submit" class="btn btn-info">Kaydet</button>
                             </form>
+
+                            <?php
+
+                            // Veritabanı bağlantısı
+                            require_once('../db/dbhelper.php');
+
+                            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                                // Formdan gelen verileri al
+                                $title = $_POST['title'];
+                                $content = $_POST['content'];
+                                $description = $_POST['description'];
+                                $img = $_POST['img'];
+
+                                // Resim dosyasını yükle
+                                $target_dir = "assets/images/";
+                                $blogid = $conn->query("SELECT MAX(id) FROM blog")->fetch_row()[0] + 1; // Son blog id'sinden 1 büyük event id al
+                                $target_file = $target_dir . "blogfoto" . $blogid . ".jpg";
+                                $uploadOk = 1;
+                                $imageFileType = strtolower(pathinfo($_FILES["fileToUpload"]["name"], PATHINFO_EXTENSION));
+                                if (isset($_POST["submit"])) {
+                                    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+                                    if ($check !== false) {
+                                        $uploadOk = 1;
+                                    } else {
+                                        echo "Yüklenen dosya bir resim değil.";
+                                        $uploadOk = 0;
+                                    }
+                                }
+                                if ($uploadOk == 0) {
+                                    echo "Dosya yüklenirken bir hata oluştu.";
+                                } else {
+                                    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+                                        echo "Dosya başarıyla yüklendi.";
+                                    } else {
+                                        echo "Dosya yüklenirken bir hata oluştu.";
+                                    }
+                                }
+
+                                $date_now = date("d.m.Y H:i:s");
+                                // Veritabanına kaydet
+                                $sql = "INSERT INTO blog (title, content, img, description, creation_date, is_active, is_deleted ) VALUES ('$title', '$content', '$target_file', '$description', $date_now, 1, 0)";
+                                if ($db->insertQuery($sql) === TRUE) {
+                                    echo "Blog başarıyla eklendi.";
+                                } else {
+                                    echo "Error: " . $sql . "<br>" . $conn->error;
+                                }
+
+                                // Veritabanı bağlantısını kapat
+                                $conn->close();
+                            }
+
+                            ?>
                         </div>
                     </div>
 

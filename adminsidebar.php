@@ -17,10 +17,10 @@
             </div>
         </div>
         <div class="navbar-nav w-100">
-            <a href="index.php" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2"></i>Events</a>
-            <a href="about.php" class="nav-item nav-link "><i class="fa fa-chart-pie me-2"></i>About</a>
-            <a href="blogs.php" class="nav-item nav-link"><i class="fa fa-file me-2"></i>Blog Yönetimi</a>
-            <a href="videos.php" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Videos</a>
+            <a href="adminpanel.php" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2"></i>Events</a>
+            <a href="adminabout.php" class="nav-item nav-link "><i class="fa fa-chart-pie me-2"></i>About</a>
+            <a href="adminblogs.php" class="nav-item nav-link"><i class="fa fa-file me-2"></i>Blog Yönetimi</a>
+            <a href="adminvideos.php" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Videos</a>
             <a href="widget.php" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
             <a href="form.php" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
             <a href="table.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>

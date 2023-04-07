@@ -45,14 +45,14 @@
 
 
         <!-- sidebar -->
-        <?php require_once('sidebar.php') ?>
+        <?php require_once('adminsidebar.php') ?>
         <!-- sidebar bitiş -->
 
 
         <!-- Content Start -->
         <div class="content">
             <!-- Navbar Start -->
-            <?php require_once('navbar.php') ?>
+            <?php require_once('adminnavbar.php') ?>
             <!-- Navbar End -->
 
 

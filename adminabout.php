@@ -43,48 +43,45 @@
         <!-- Spinner End -->
 
 
-        <!-- sidebar -->
-        <?php require_once('sidebar.php') ?>
-        <!-- sidebar bitiş -->
 
+        <!-- sidebar -->
+        <?php require_once('adminsidebar.php') ?>
+        <!-- sidebar bitiş -->
 
 
         <!-- Content Start -->
         <div class="content">
-
-
             <!-- Navbar Start -->
-            <?php require_once('navbar.php') ?>
+            <?php require_once('adminnavbar.php') ?>
             <!-- Navbar End -->
+
 
             <!-- Widgets Start -->
             <div class="container-fluid pt-4 px-4">
                 <div style="justify-content:center; flex-wrap: wrap;" class="row g-4">
 
-
-                    <!-- event ekle form başlangıç -->
-
+                    <!-- about form başlangıç -->
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Event Ekle</h6>
+                            <h6 class="mb-4">About Sayfası Ayarları</h6>
                             <form method="POST">
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Event Başlığı:</label>
+                                    <label for="exampleInputEmail1" class="form-label">Büyük Başlık:</label>
                                     <input type="email" class="form-control" id="exampleInputEmail1"
                                         aria-describedby="emailHelp">
 
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Kısa Açıklama:</label>
+                                    <label for="exampleInputPassword1" class="form-label">Mavi yazı:</label>
                                     <input type="text" class="form-control" id="exampleInputPassword1">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">İçerik:</label>
+                                    <label for="exampleInputPassword1" class="form-label">Küçük Başlık:</label>
                                     <textarea style="resize:none;" rows="6" type="text" class="form-control"
                                         id="exampleInputPassword1"> </textarea>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Buton Yazısı:</label>
+                                    <label for="exampleInputPassword1" class="form-label">İleitşim Buton Yazısı:</label>
                                     <input type="text" class="form-control" id="exampleInputPassword1">
                                 </div>
                                 <div class="mb-3">
@@ -95,51 +92,17 @@
                             </form>
                         </div>
                     </div>
-                    <!-- event ekle form bitiş -->
+                    <!-- about form bitiş -->
 
-
-                    
-
-                    <!-- event liste start -->
-
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Tüm eventler</h6>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Event ID</th>
-                                        <th scope="col">Event adı</th>
-                                        
-                                        <th scope="col">Durum</th>
-                                        <th scope="col">İşlemler</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Event 1</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <div class="btn-group" role="group">
-                                                <button type="button" class="btn btn-warning">Düzenle</button>
-                                                <button type="button" class="btn btn-danger">Sil</button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- event liste end -->
                 </div>
             </div>
             <!-- Widgets End -->
-            <br/>
+
 
         </div>
+        <!-- Content End -->
+
+
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
