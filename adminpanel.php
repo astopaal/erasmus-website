@@ -126,32 +126,84 @@
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-secondary rounded h-100 p-4">
                             <h6 class="mb-4">Event Ekle</h6>
-                            <form method="POST">
+                            <form method="POST" enctype="multipart/form-data">
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Event Başlığı:</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1"
+                                    <input type="text" name="title" class="form-control" id="exampleInputEmail1"
                                         aria-describedby="emailHelp">
 
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Kısa Açıklama:</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1">
+                                    <input type="text" name="description" class="form-control"
+                                        id="exampleInputPassword1">
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">İçerik:</label>
-                                    <textarea style="resize:none;" rows="6" type="text" class="form-control"
-                                        id="exampleInputPassword1"> </textarea>
+                                    <textarea style="resize:none;" name="content" rows="6" type="text"
+                                        class="form-control" id="exampleInputPassword1"> </textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Buton Yazısı:</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1">
+                                    <input type="text" class="form-control" name="buttonText"
+                                        id="exampleInputPassword1">
                                 </div>
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">Fotoğraf seç:</label>
-                                    <input class="form-control bg-dark" type="file" id="formFile">
+                                    <input name="img" class="form-control bg-dark" type="file" id="formFile">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Kaydet</button>
                             </form>
+
+                            <?php
+
+                            require_once('db/dbhelper.php');
+
+                            $db = new DBController();
+
+                            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+                                $title = $_POST['title'];
+                                $content = $_POST['content'];
+                                $description = $_POST['description'];
+                                $buttonText = $_POST['buttonText'];
+                                $img = $_FILES['img'];
+
+                                $target_dir = "assets/images/";
+                                $eventid = $db->runQuery("SELECT MAX(id) FROM events")[0]["MAX(id)"];
+                                $target_file = $target_dir . "eventfoto" . ($eventid + 1) . ".jpg";
+                                $uploadOk = 1;
+                                $imageFileType = strtolower(pathinfo($_FILES["img"]["name"], PATHINFO_EXTENSION));
+
+                                if ($_FILES["img"]["error"] == UPLOAD_ERR_OK) {
+                                    $check = getimagesize($_FILES["img"]["tmp_name"]);
+                                    if ($check !== false) {
+                                        $uploadOk = 1;
+                                    } else {
+                                        echo "Yüklenen dosya bir resim değil.";
+                                        $uploadOk = 0;
+                                    }
+                                }
+
+                                if ($uploadOk == 0) {
+                                    echo "Dosya yüklenirken bir hata oluştu.";
+                                } else {
+                                    if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
+                                        echo "Dosya başarıyla yüklendi.";
+                                    } else {
+                                        echo "Dosya yüklenirken bir hata oluştu.";
+                                    }
+                                }
+
+                                $sql = "INSERT INTO events (img, title, content, description, is_active, is_deleted ) VALUES ('$target_file','$title', '$content',  '$description', 1, 0)";
+                                $insertid = $db->insertQuery($sql);
+                                
+                                if (isset($insert_id)) {
+                                    echo '<script>alert("eklendi"); window.location.href = "adminpanel.php";</script>';
+                                }
+                            }
+
+                            ?>
                         </div>
                     </div>
                     <!-- event ekle form bitiş -->

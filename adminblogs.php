@@ -138,7 +138,7 @@
                                         class="form-control" id="exampleInputPassword1"></textarea>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="formFile" class="form-label">Resim</label>
+                                    <label for="formFile" class="form-label">Resim: </label>
                                     <input name="img" class="form-control bg-dark" type="file" id="formFile">
                                 </div>
                                 <button type="submit" class="btn btn-info">Kaydet</button>
