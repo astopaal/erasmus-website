@@ -62,6 +62,65 @@
                 <div style="justify-content:center; flex-wrap: wrap;" class="row g-4">
 
 
+                    <!-- event liste start -->
+
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <h6 class="mb-4">Tüm eventler</h6>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Event ID</th>
+                                        <th scope="col">Event adı</th>
+
+                                        <th scope="col">Durum</th>
+                                        <th scope="col">İşlemler</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <?php
+
+                                    require_once('db/dbhelper.php');
+                                    $db = new DBController();
+                                    $query = "SELECT * FROM events";
+                                    $results = $db->runQuery($query);
+                                    foreach ($results as $result) {
+
+                                        ?>
+
+                                        <tr>
+                                            <th scope="row">
+                                                <?php echo $result['id'] ?>
+                                            </th>
+                                            <td>
+                                                <?php echo $result['title'] ?>
+                                            </td>
+                                            <td>
+                                                <?php
+                                                if ($result['is_active'] == '1') {
+                                                    echo "Aktif";
+                                                } else {
+                                                    echo "Pasif";
+                                                }
+                                                ?>
+                                            </td>
+                                            <td>
+                                                <div class="btn-group" role="group">
+                                                    <button type="button" class="btn btn-warning">Düzenle</button>
+                                                    <button type="button" class="btn btn-danger">Sil</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- event liste end -->
+
                     <!-- event ekle form başlangıç -->
 
                     <div class="col-sm-12 col-xl-6">
@@ -98,46 +157,11 @@
                     <!-- event ekle form bitiş -->
 
 
-                    
 
-                    <!-- event liste start -->
-
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Tüm eventler</h6>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Event ID</th>
-                                        <th scope="col">Event adı</th>
-                                        
-                                        <th scope="col">Durum</th>
-                                        <th scope="col">İşlemler</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Event 1</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <div class="btn-group" role="group">
-                                                <button type="button" class="btn btn-warning">Düzenle</button>
-                                                <button type="button" class="btn btn-danger">Sil</button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- event liste end -->
                 </div>
             </div>
             <!-- Widgets End -->
-            <br/>
+            <br />
 
         </div>
         <!-- Back to Top -->

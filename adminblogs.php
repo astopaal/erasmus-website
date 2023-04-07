@@ -88,10 +88,24 @@
                                         ?>
 
                                         <tr>
-                                            <th scope="row"><?php echo $result['id'] ?></th>
-                                            <td><?php echo $result['title'] ?></td>
-                                            <td><?php echo $result['creation_date'] ?></td>
-                                            <td><?php echo $result['is_active'] ?></td>
+                                            <th scope="row">
+                                                <?php echo $result['id'] ?>
+                                            </th>
+                                            <td>
+                                                <?php echo $result['title'] ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $result['creation_date'] ?>
+                                            </td>
+                                            <td>
+                                                <?php
+                                                if ($result['is_active'] == '1') {
+                                                    echo "Aktif";
+                                                } else {
+                                                    echo "Pasif";
+                                                }
+                                                ?>
+                                            </td>
                                             <td>
                                                 <div class="btn-group" role="group">
                                                     <button type="button" class="btn btn-warning">Düzenle</button>
