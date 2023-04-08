@@ -6,7 +6,7 @@
     ?>
 </div>
 <?php
-require_once('pages/videoscontentx.php')
+require_once('pages/videoscontent.php')
     ?>
 <style>
     body {
