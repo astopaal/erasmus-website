@@ -5,48 +5,39 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog</title>
-  <link rel="stylesheet" href="assets/styles/blog.css">
+  <link rel="stylesheet" href="assets/styles/blog.scss">
   <link rel="stylesheet" href="assets/styles/style.css">
-  <link rel="stylesheet" href="assets/styles/style-foot.css">
+  <link rel="stylesheet" href="assets/styles/style-foot.css">S
+  <title>Blog</title>
+
 </head>
 
 <body>
+  <h1>All articles</h1>
 
-  <div class="blog">
-    <div class="header_blog">
-      <h2>Blog Name</h2>
-    </div>
+  <div class="blog-container">
 
-    <div class="row">
-      <?php
-      require_once('db/dbhelper.php');
-      $db = new DBController();
-      $query = "SELECT * FROM blog";
-      $results = $db->runQuery($query);
+    <?php
 
-      foreach ($results as $result) {
-        ?>
-        <div class="leftcolumn">
-          <div class="card">
-            <h2 class="blog_title">
-              <?php echo $result['title'] ?>
-            </h2>
-            <h5 class="blog_date">
-              <?php echo $result['creation_date'] ?>
-            </h5>
-            <div class="fakeimg" style="height:200px;">
-              <img src=<?php echo $result['img'] ?>>
-            </div>
-            <p class="blog_desc">
-              <?php echo $result['blog_description'] ?>
-            </p>
-          </div>
+    require_once('db/dbhelper.php');
+    $db = new DBController();
+    $query = "SELECT * FROM blog";
+    $results = $db->runQuery($query);
+
+    foreach ($results as $result) {
+      ?>
+      <div class="blog-card">
+        <div class="blog-header">
+          <img class="blog-image" src=<?php echo $result['img']?> alt="Blog Image">
+          <h2 class="blog-title"><?php echo $result['title']?></h2>
+          <p class="blog-date"><?php echo $result['creation_date']?></p>
         </div>
-      <?php } ?>
-    </div>
-  </div>
-  </div>
+        <div class="blog-content">
+          <p class="blog-description"><?php echo $result['blog_description']?></p>
+          <a href="#" class="read-more">Read More</a>
+        </div>
+      </div>
+    <?php } ?>
   </div>
 
 </body>

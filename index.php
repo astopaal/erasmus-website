@@ -11,13 +11,15 @@ require_once('pages/home.php');
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="assets/styles/style.css">
+    <link rel="preload" href="assets/styles/style.css" as="style">
+    <link rel="stylesheet" href="assets/styles/style.css"  media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="assets/styles/events.css" >
+    <link rel="stylesheet" href="assets/styles/style.css" >
+    <link rel="stylesheet" href="assets/styles/style-foot.css">
     <title>Erasmus+</title>
 </head>
 
 <body>
-    
-
     <script src="assets/scripts/script.js"></script>
 </body>
 

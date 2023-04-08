@@ -1,3 +1,4 @@
+
 <div class="header-wrapper">
     <?php
 
@@ -6,8 +7,9 @@
     ?>
 </div>
 <?php
+
 require_once('pages/blogcontent.php')
-    ?>
+?>
 <style>
     body {
         margin: 0
