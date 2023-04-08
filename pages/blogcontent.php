@@ -34,7 +34,7 @@
         </div>
         <div class="blog-content">
           <p class="blog-description"><?php echo $result['blog_description']?></p>
-          <a href="#" class="read-more">Read More</a>
+          <a href=<?php echo "blogdetail.php?id=".$result['id'] ?> class="read-more">Read More</a>
         </div>
       </div>
     <?php } ?>
