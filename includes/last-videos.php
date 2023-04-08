@@ -72,45 +72,48 @@
         <h1>Last 4 Videos</h1>
         <div class="video-field">
             <div class="video-card">
-                <video width="450" height="200" controls poster="https://picsum.photos/450/253">
-                    <source src="assets/videos/video1.mp4" type="video/mp4">
+                <video width="450" height="200" poster="https://picsum.photos/450/253"
+                    data-src="assets/videos/video1.mp4" data-poster="https://picsum.photos/450/253">
                 </video>
-
-                <div class="card-content">
-                    <h2>Staff Mobility</h2>
-                    <p>Higher Education Student Mobility</p>
-                </div>
+                
             </div>
             <div class="video-card">
-                <video width="450" height="200" controls poster="https://picsum.photos/450/253">
-                    <source src="assets/videos/video1.mp4" type="video/mp4">
+                <video width="450" height="200" poster="https://picsum.photos/450/253"
+                    data-src="assets/videos/video1.mp4" data-poster="https://picsum.photos/450/253">
                 </video>
-
-                <div class="card-content">
-                    <h2>Student Mobility</h2>
-                    <p>Study Abroad Programs</p>
-                </div>
+                
             </div>
             <div class="video-card">
-                <video width="450" height="200" controls poster="https://picsum.photos/450/253">
-                    <source src="assets/videos/video1.mp4" type="video/mp4">
+                <video width="450" height="200" poster="https://picsum.photos/450/253"
+                    data-src="assets/videos/video1.mp4" data-poster="https://picsum.photos/450/253">
                 </video>
-
-                <div class="card-content">
-                    <h2>Alumni Interview</h2>
-                    <p>Life After Graduation</p>
-                </div>
+                
             </div>
             <div class="video-card">
-                <video width="450" height="200" controls poster="https://picsum.photos/450/253">
-                    <source src="assets/videos/video1.mp4" type="video/mp4">
+                <video width="450" height="200" poster="https://picsum.photos/450/253"
+                    data-src="assets/videos/video1.mp4" data-poster="https://picsum.photos/450/253">
                 </video>
-
-                <div class="card-content">
-                    <h2>Faculty Interview</h2>
-                    <p>Teaching Philosophy</p>
-                </div>
+                
             </div>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async></script>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    var videoElements = document.querySelectorAll("video");
+
+                    videoElements.forEach(function (video) {
+                        console.log("video bulundu")
+                        video.addEventListener("click", function () {
+                            if (!video.getAttribute("src")) {
+                                video.setAttribute("src", video.getAttribute("data-src"));
+                                video.setAttribute("poster", video.getAttribute("data-poster"));
+                            }
+                            video.play();
+                        });
+                    });
+                });
+            </script>
         </div>
         <div class="all-videos-link">
             <a href="#">See All Videos</a>

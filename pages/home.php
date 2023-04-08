@@ -41,11 +41,15 @@
                 ?>
 
                 <div class="event-card">
-                    <img src=<?php echo $result['img']?> alt="event-img" />
+                    <img src=<?php echo $result['img'] ?> alt="event-img" />
                     <div>
-                        <p class="title"><?php echo $result['title']?></p>
-                        <p class="description"><?php echo $result['description']?></p>
-                        <a href="/events/<?php echo $result['id'] ?>"><?php echo $result['buttonText']?></a>
+                        <p class="title">
+                            <?php echo $result['title'] ?>
+                        </p>
+                        <p class="description">
+                            <?php echo $result['description'] ?>
+                        </p>
+                        <a href="/events/<?php echo $result['id'] ?>"><?php echo $result['buttonText'] ?></a>
                         <hr>
                     </div>
                 </div>
@@ -61,6 +65,8 @@
         <?php require_once('includes/last-videos.php'); ?>
     </div>
 </body>
+
+
 
 </html>
 
