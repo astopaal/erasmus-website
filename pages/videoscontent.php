@@ -20,7 +20,7 @@
 
     require_once('db/dbhelper.php');
     $db = new DBController();
-    $query = "SELECT * FROM videos";
+    $query = "SELECT * FROM videos WHERE is_active= 1" ;
     $results = $db->runQuery($query);
 
     foreach ($results as $result) {

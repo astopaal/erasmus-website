@@ -51,10 +51,25 @@ $result = $results[0]
                 <?php echo $result['video_description'] ?>
             </p>
         </div>
+       
 
        
 
     </div>
+    <div class="comment-container">
+            <div class="video-comment-card">
+                <h2>Add comment</h1>
+                    <!-- <label for="comment-author-name">Full name :</label><br> -->
+                    <form class="video-form" action=<?php echo "videodetail.php?id=" . $id ?> method="POST">
+                        <input class="comment-author-input" name="comment-author-name" type="text"
+                            placeholder="Full name...">
+                        <textarea class="comment-input" name="comment-input" id="" cols="30" rows="5"
+                            placeholder="Your comment..."></textarea>
+
+                    </form>
+                    <button class="button-send" type="submit">Send</button>
+            </div>
+        </div>
 </body>
 
 <?php
