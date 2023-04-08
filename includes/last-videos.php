@@ -25,29 +25,24 @@
 
         .video-card {
             position: relative;
+            display: inline-block;
+            overflow: hidden;
         }
 
         .video-card video {
             display: block;
             width: 100%;
             height: auto;
+            border: solid 1px white;
+            border-radius: 5%;
+            filter: blur(5px);
+            transition: filter 0.3s ease-out;
         }
 
-        .video-card .card-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: #fff;
+        .video-card:hover video {
+            filter: blur(2px);
         }
 
-        .video-card .card-content h2 {
-            font-size: 1.2rem;
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
 
         .all-videos-link {
             text-align: center;
@@ -63,6 +58,10 @@
             border-radius: 5px;
             font-weight: bold;
         }
+
+        .video-card video.no-blur {
+            filter: blur(0px);
+        }
     </style>
 
 </head>
@@ -72,49 +71,58 @@
         <h1>Last 4 Videos</h1>
         <div class="video-field">
             <div class="video-card">
-                <video width="450" height="200" poster="https://picsum.photos/450/253"
-                    data-src="assets/videos/video1.mp4" data-poster="https://picsum.photos/450/253">
+                <video width="450" poster="https://picsum.photos/450/253">
+                    <source data-src="assets/videos/video1.mp4" type="video/mp4">
                 </video>
-                
             </div>
             <div class="video-card">
-                <video width="450" height="200" poster="https://picsum.photos/450/253"
-                    data-src="assets/videos/video1.mp4" data-poster="https://picsum.photos/450/253">
+                <video width="450" poster="https://picsum.photos/450/253">
+                    <source data-src="assets/videos/video2.mp4" type="video/mp4">
                 </video>
-                
             </div>
             <div class="video-card">
-                <video width="450" height="200" poster="https://picsum.photos/450/253"
-                    data-src="assets/videos/video1.mp4" data-poster="https://picsum.photos/450/253">
+                <video width="450" poster="https://picsum.photos/450/253">
+                    <source data-src="assets/videos/video3.mp4" type="video/mp4">
                 </video>
-                
             </div>
             <div class="video-card">
-                <video width="450" height="200" poster="https://picsum.photos/450/253"
-                    data-src="assets/videos/video1.mp4" data-poster="https://picsum.photos/450/253">
+                <video width="450" poster="https://picsum.photos/450/253">
+                    <source data-src="assets/videos/video4.mp4" type="video/mp4">
                 </video>
-                
             </div>
-
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async></script>
 
             <script>
                 document.addEventListener("DOMContentLoaded", function () {
-                    var videoElements = document.querySelectorAll("video");
+                    var videoCards = document.querySelectorAll(".video-card");
 
-                    videoElements.forEach(function (video) {
-                        console.log("video bulundu")
+                    videoCards.forEach(function (videoCard) {
+                        var video = videoCard.querySelector("video");
+                        var source = video.querySelector("source");
+
                         video.addEventListener("click", function () {
-                            if (!video.getAttribute("src")) {
-                                video.setAttribute("src", video.getAttribute("data-src"));
-                                video.setAttribute("poster", video.getAttribute("data-poster"));
+                            if (!source.getAttribute("src")) {
+                                source.setAttribute("src", source.getAttribute("data-src"));
+                                video.load();
                             }
-                            video.play();
+                            if (video.paused) {
+                                video.play();
+                            } else {
+                                video.pause();
+                            }
+
+                            video.classList.add("no-blur")
+
+
+                        });
+                            video.addEventListener("pause", function () {
+                            video.classList.remove("no-blur"); // .blur sınıfını kaldır
                         });
                     });
                 });
             </script>
         </div>
+
+
         <div class="all-videos-link">
             <a href="#">See All Videos</a>
         </div>
