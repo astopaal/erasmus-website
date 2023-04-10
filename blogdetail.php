@@ -33,7 +33,7 @@ $result = $results[0]
 </head>
 
 <body>
-    <div class="container">
+    <div class="blog-container">
         <div class="blog-header">
             <h1 class="blog-title">
                 <?php echo $result['title'] ?>
@@ -62,25 +62,46 @@ $result = $results[0]
         <div class="comment-container">
             <div class="blog-comment-card">
                 <h2>Add comment</h1>
-                    <!-- <label for="comment-author-name">Full name :</label><br> -->
-                    <form class="comment-form" action=<?php echo "blogdetail.php?id=" . $id ?> method="POST">
-                        <input class="comment-author-input" name="comment-author-name" type="text"
-                            placeholder="Full name...">
-                        <textarea class="comment-input" name="comment-input" id="" cols="30" rows="5"
-                            placeholder="Your comment..."></textarea>
 
+                    <form id="comment-form" name="comment-form" class="comment-form" action=<?php echo "blogdetail.php?id=" . $id ?> method="POST">
+                        <input class="comment-author-input" name="comment-author-name" id="comment-author-name" type="text"
+                            placeholder="Full name...">
+                        <textarea class="comment-input" name="comment-input" id="comment-input" cols="30" rows="5"
+                            placeholder="Your comment..."></textarea>
+                        <input class="button-send" id="comment-submit" type="submit" name="submit-comment" />
                     </form>
-                    <button class="button-send" type="submit">Send</button>
+
+                    <?php
+                    if (isset($_POST['submit-comment'])) {
+                        $author = $_POST['comment-author-name'];
+                        $content = $_POST['comment-input'];
+                        $parent_id = $id;
+                        $is_active = 1;
+                        $is_deleted = 0;
+                        $is_approved = 0;
+                        $date_now = date("Y-m-d H:i:s");
+
+                        require_once('db/dbhelper.php');
+                        $db_ = new DBController();
+                        $querycomment = "INSERT INTO blog_comments (parent_id, author, content, is_active, is_deleted, is_approved, comment_date) VALUES ('$parent_id', '$author', '$content', '$is_active', b'$is_deleted', b'$is_approved', '$date_now')";
+                        $resultcomment = $db_->insertQuery($querycomment);
+                        if ($resultcomment) {
+                            echo "Your comment is noted. It will be published after approval by the admins.";
+                        } else {
+                            echo "Error adding comment!";
+                        }
+                    }
+                    ?>
             </div>
         </div>
 
 
-
+    </div>
+    <div>
+        <?php
+        require_once('includes/footer.php');
+        ?>
     </div>
 </body>
-
-<?php
-require_once('includes/footer.php');
-?>
 
 </html>
