@@ -33,8 +33,8 @@
           <h2 class="video-title"><?php echo $result['video_title']?></h2>
           <p class="video-date"><?php echo $result['video_date']?></p>
         </div>
-        <div class="video-description">
-          <p class="video-description"><?php echo $result['video_description']?></p>
+        <div class="video-content">
+          <p class="video-content"><?php echo $result['video_content']?></p>
           <a href=<?php echo "videodetail.php?id=".$result['id'] ?> class="watch" > Watch </a>
         </div>
       </div>

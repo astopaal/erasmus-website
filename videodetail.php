@@ -68,15 +68,35 @@ $result = $results[0]
                             placeholder="Full name...">
                         <textarea class="comment-input" name="comment-input" id="" cols="30" rows="5"
                             placeholder="Your comment..."></textarea>
-
-                    </form>
                     <button class="button-send" type="submit">Send</button>
+                    </form>
             </div>
                 </div>        
 
        
 
     </div>
+    <?php
+    require_once "db/dbhelper.php";
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $author = $_POST['comment-author-name'];
+        $content = $_POST['comment-input'];
+        
+
+        $db = new DBController();
+        $query = "INSERT INTO video_comments (comment-author-name, comment-input)
+              VALUES ('$author', '$content')";
+        $insert_id = $db->insertQuery($query);
+
+    }
+
+    if(isset($insert_id)) {
+        echo '<script>alert("We have received your comment, we will post it as soon as we check."); window.location.href = "index.php";</script>';
+    }
+
+
+    ?>
     
 </body>
 

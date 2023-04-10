@@ -53,7 +53,7 @@
           <label for="email">Email *</label>
           <input id="email" name="email" type="email" required>
           <label for="comment">Message</label>
-          <textarea name="comment" id="comment"></textarea>
+          <textarea name="comment" id="comment"> </textarea>
           <input type="submit" value="Send">
         </form>
       </div>
