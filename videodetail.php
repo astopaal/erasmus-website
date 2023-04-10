@@ -31,7 +31,7 @@ $result = $results[0]
     </title>
 </head>
 
-<body>
+<body class="video-body">
     <div class="container">
         <div class="video-header">
             <h1 class="video-title">
@@ -42,23 +42,26 @@ $result = $results[0]
             </p>
         </div>
 
-        <div class="video-image">
-            <img src="<?php echo $result['video-image'] ?>" alt="<?php echo $result['video_title'] ?>">
+        <div class="video-link">
+                <iframe class="video-play"
+                        src="<?php echo $result['video_link'] ?>" allowfullscreen> 
+
+                </iframe> 
+            
         </div>
 
-        <div class="video-description">
+        <div class="video-play-description">
+            <h3>Description</h3>
             <p>
                 <?php echo $result['video_description'] ?>
             </p>
         </div>
-       
 
-       
-
-    </div>
-    <div class="comment-container">
-            <div class="video-comment-card">
-                <h2>Add comment</h1>
+        <div class="comment-container">
+            
+        
+        <div class="video-comment-card">
+                <h1>Add comment</h1>
                     <!-- <label for="comment-author-name">Full name :</label><br> -->
                     <form class="video-form" action=<?php echo "videodetail.php?id=" . $id ?> method="POST">
                         <input class="comment-author-input" name="comment-author-name" type="text"
@@ -69,7 +72,12 @@ $result = $results[0]
                     </form>
                     <button class="button-send" type="submit">Send</button>
             </div>
-        </div>
+                </div>        
+
+       
+
+    </div>
+    
 </body>
 
 <?php
