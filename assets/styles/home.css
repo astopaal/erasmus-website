@@ -41,6 +41,8 @@
 
 .event-card {
     box-sizing: border-box;
+    background: #fff;
+    border-radius: 5px;
     margin: 20px;
     border: 1px solid #c6c6c6;
     padding: 1.5%;
@@ -50,12 +52,13 @@
 
 .event-card img {
     width: 350px;
-    
+
     height: 220px;
 }
 
 .event-card div {
     width: 100%;
+
 }
 
 .event-card a {

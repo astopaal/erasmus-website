@@ -137,3 +137,49 @@
         min-width: 170px;
     }
 }
+
+.comments-field {
+    display: flex;
+    flex-direction: column;
+    margin: 8% 0 auto;
+    max-width: 70%;
+}
+
+.comment-card {
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    margin-bottom: 5px;
+}
+
+.comment-head {
+    display: flex;
+    justify-content: space-between;
+    background: #FCFCFC;
+    padding: 10px 12px;
+    border-bottom: 1px solid #E5E5E5;
+    overflow: hidden;
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+}
+
+.show-author-name {
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+.show-comment-date {
+    font-size: smaller;
+    font-weight: 600;
+}
+
+.show-comment-content {
+    background: #FFF;
+    padding: 12px;
+    font-size: 15px;
+    color: #595959;
+    -webkit-border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+    border-radius: 0 0 4px 4px;
+}

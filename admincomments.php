@@ -26,7 +26,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['btn-aktif-pasif'])) {
     //Başarılı bir şekilde güncellendiğinde sayfayı yeniden yükle
     if ($result) {
         header('Location: ' . $_SERVER['PHP_SELF']);
-
     }
 }
 ?>
@@ -120,50 +119,50 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['btn-aktif-pasif'])) {
                                     ?>
 
                                     <?php if (!empty($results)): ?>
-                                        <?php foreach ($results as $result): ?>
-                                            <tr>
-                                                <!-- Yorum bilgileri -->
-                                                <td>
-                                                    <?php echo $result['id'] ?>
-                                                </td>
-                                                <td>
-                                                    <?php echo $result['author'] ?>
-                                                </td>
-                                                <td>
-                                                    <?php echo $result['content'] ?>
-                                                </td>
-                                                <td>
-                                                    <?php
+                                    <?php foreach ($results as $result): ?>
+                                    <tr>
+                                        <!-- Yorum bilgileri -->
+                                        <td>
+                                            <?php echo $result['id'] ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $result['author'] ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $result['content'] ?>
+                                        </td>
+                                        <td>
+                                            <?php
                                                     if ($result['is_approved'] == '1') {
                                                         echo "Onaylı";
                                                     } else {
                                                         echo "Pasif";
                                                     }
                                                     ?>
-                                                </td>
-                                                <td>
-                                                    <div class="btn-group" role="group">
-                                                        <!-- Onayla/Kaldır butonu -->
-                                                        <form method="post">
-                                                            <input type="hidden" name="comment-id"
-                                                                value="<?php echo $result['id']; ?>">
-                                                            <input type="hidden" name="is-approved"
-                                                                value="<?php echo ($result['is_approved'] == '1') ? '0' : '1'; ?>">
-                                                            <button name="btn-aktif-pasif" type="submit"
-                                                                class="btn btn-warning">
-                                                                <?php echo ($result['is_approved'] == '1') ? 'Kaldır' : 'Onayla'; ?>
-                                                            </button>
-                                                        </form>
-                                                        <!-- Sil butonu -->
-                                                        <button type="button" class="btn btn-danger">Sil</button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        <?php endforeach; ?>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group" role="group">
+                                                <!-- Onayla/Kaldır butonu -->
+                                                <form method="post">
+                                                    <input type="hidden" name="comment-id"
+                                                        value="<?php echo $result['id']; ?>">
+                                                    <input type="hidden" name="is-approved"
+                                                        value="<?php echo ($result['is_approved'] == '1') ? '0' : '1'; ?>">
+                                                    <button name="btn-aktif-pasif" type="submit"
+                                                        class="btn btn-warning">
+                                                        <?php echo ($result['is_approved'] == '1') ? 'Kaldır' : 'Onayla'; ?>
+                                                    </button>
+                                                </form>
+                                                <!-- Sil butonu -->
+                                                <button type="button" class="btn btn-danger">Sil</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <?php endforeach; ?>
                                     <?php else: ?>
-                                        <tr>
-                                            <td colspan="5">No results found.</td>
-                                        </tr>
+                                    <tr>
+                                        <td colspan="5">No results found.</td>
+                                    </tr>
                                     <?php endif;
 
                                     ?>

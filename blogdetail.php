@@ -48,12 +48,15 @@ $result = $results[0]
         </div>
 
         <div class="blog-description">
+            <p style="font-size: x-small;font-weight: 600;">Description :</p>
             <p>
                 <?php echo $result['blog_description'] ?>
             </p>
         </div>
 
         <div class="blog-content">
+            <p style="font-size: x-small;font-weight: 600;">Content :</p>
+
             <p>
                 <?php echo $result['content'] ?>
             </p>
@@ -154,7 +157,41 @@ $result = $results[0]
             }
         </style>
 
+        <?php
+
+        $comments_query = "SELECT * FROM blog_comments where parent_id = $id";
+        $comment_results = $db->runQuery($comments_query);
+
+        ?>
+
+        <div class="comments-container">
+
+            <div class="comments-field">
+                <h3>All comments</h3>
+                <?php
+
+                foreach ($comment_results as $comment_result) {
+                    ?>
+                    <div class="comment-card">
+                        <div class="comment-head">
+                            <span class="show-author-name">
+                                <?php echo $comment_result['author']; ?>
+                            </span>
+                            <span class="show-comment-date"><?php echo $comment_result['comment_date']; ?></span>
+                        </div>
+                        <div class="show-comment-content">
+                            <p class="show-content-p">
+                                <?php echo $comment_result['content']; ?>
+                            </p>
+                        </div>
+                    </div>
+
+                <?php } ?>
+            </div>
+        </div>
+
     </div>
+
     <div>
         <?php
         require_once('includes/footer.php');
@@ -191,6 +228,9 @@ $result = $results[0]
             });
         });
     </script>
+
+
+
 
 
 </body>

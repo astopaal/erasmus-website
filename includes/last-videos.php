@@ -124,7 +124,7 @@
 
 
         <div class="all-videos-link">
-            <a href="#">See All Videos</a>
+            <a href="videos.php">See All Videos</a>
         </div>
     </div>
 </body>

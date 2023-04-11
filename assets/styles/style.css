@@ -2,6 +2,10 @@
 
 * {
     font-family: 'Open Sans', sans-serif;
+    
+}
+body {
+    background-color: #DEE1E3 !important;
 }
 
 .amazingslider-wrapper {
