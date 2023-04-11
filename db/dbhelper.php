@@ -15,7 +15,9 @@ class DBController
     function connectDB()
     {
         $conn = mysqli_connect($this->host, $this->user, $this->password, $this->database);
-        if(!$conn) {echo "db bağlantı hatası";}
+        if (!$conn) {
+            echo "db bağlantı hatası";
+        }
         return $conn;
     }
     function runQuery($query)
@@ -44,8 +46,10 @@ class DBController
     function updateQuery($query)
     {
         $result = mysqli_query($this->conn, $query);
-        if ($result) {
+        if ($result !== false) {
             return mysqli_affected_rows($this->conn);
+        } else {
+            return "Bir hata oluştu";
         }
     }
     function deleteQuery($query)

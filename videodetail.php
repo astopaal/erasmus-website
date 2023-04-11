@@ -43,16 +43,10 @@ $result = $results[0]
         </div>
 
         <div class="video-link">
-<<<<<<< HEAD
-            <iframe class="video-play" src="<?php echo $result['video_link'] ?>" allowfullscreen>
-
-            </iframe>
-=======
                 <iframe class="video-play"
                         src="<?php echo $result['video_link'] ?>" allowfullscreen>
 
                 </iframe>
->>>>>>> bcfed27719de46f135b615f02f2d6b03c25d0daa
 
         </div>
 

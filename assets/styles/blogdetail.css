@@ -73,7 +73,10 @@
 
 .comment-author-input {
     padding: 1%;
-    max-width: 50%;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+
 }
 
 .comment-input {

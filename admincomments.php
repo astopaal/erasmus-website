@@ -1,5 +1,9 @@
 <?php
 
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -8,6 +12,23 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     exit;
 }
 
+// Veritabanında güncelleme işlemini yapmak için form submit edildiğinde kontrol et
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['btn-aktif-pasif'])) {
+    $commentId = $_POST['comment-id'];
+    $isApproved = $_POST['is-approved'];
+
+    // Veritabanında "is_approved" değerini güncelleme
+    require_once('db/dbhelper.php');
+    $db = new DBController();
+    $query = "UPDATE blog_comments SET is_approved = $isApproved WHERE id = $commentId";
+    $result = $db->updateQuery($query);
+
+    //Başarılı bir şekilde güncellendiğinde sayfayı yeniden yükle
+    if ($result) {
+        header('Location: ' . $_SERVER['PHP_SELF']);
+
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -101,9 +122,10 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                                     <?php if (!empty($results)): ?>
                                         <?php foreach ($results as $result): ?>
                                             <tr>
-                                                <th scope="row">
+                                                <!-- Yorum bilgileri -->
+                                                <td>
                                                     <?php echo $result['id'] ?>
-                                                </th>
+                                                </td>
                                                 <td>
                                                     <?php echo $result['author'] ?>
                                                 </td>
@@ -121,15 +143,18 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                                                 </td>
                                                 <td>
                                                     <div class="btn-group" role="group">
-                                                        <button type="button" class="btn btn-warning">
-                                                            <?php
-                                                            if ($result['is_approved'] == '1') {
-                                                                echo "Kaldır";
-                                                            } else {
-                                                                echo "Onayla";
-                                                            }
-                                                            ?>
-                                                        </button>
+                                                        <!-- Onayla/Kaldır butonu -->
+                                                        <form method="post">
+                                                            <input type="hidden" name="comment-id"
+                                                                value="<?php echo $result['id']; ?>">
+                                                            <input type="hidden" name="is-approved"
+                                                                value="<?php echo ($result['is_approved'] == '1') ? '0' : '1'; ?>">
+                                                            <button name="btn-aktif-pasif" type="submit"
+                                                                class="btn btn-warning">
+                                                                <?php echo ($result['is_approved'] == '1') ? 'Kaldır' : 'Onayla'; ?>
+                                                            </button>
+                                                        </form>
+                                                        <!-- Sil butonu -->
                                                         <button type="button" class="btn btn-danger">Sil</button>
                                                     </div>
                                                 </td>
@@ -139,7 +164,9 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                                         <tr>
                                             <td colspan="5">No results found.</td>
                                         </tr>
-                                    <?php endif; ?>
+                                    <?php endif;
+
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
