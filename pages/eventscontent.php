@@ -19,7 +19,7 @@
 
             require_once('db/dbhelper.php');
             $db = new DBController();
-            $query = "SELECT * FROM events";
+            $query = "SELECT * FROM events where is_Active = 1";
             $results = $db->runQuery($query);
 
             ?>

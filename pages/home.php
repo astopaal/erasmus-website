@@ -27,7 +27,7 @@
 
     require_once('db/dbhelper.php');
     $db = new DBController();
-    $query = "SELECT * FROM events LIMIT 3  ";
+    $query = "SELECT * FROM events where is_active = 1 order by id desc limit 3  ";
     $results = $db->runQuery($query);
 
     ?>

@@ -68,7 +68,7 @@ $result = $results[0]
                             placeholder="Full name...">
                         <textarea class="comment-input" name="comment-input" id="comment-input" cols="30" rows="5"
                             placeholder="Your comment..."></textarea>
-                        <input class="button-send" id="comment-submit" type="submit" name="submit-comment" />
+                        <input class="button-send" id="comment-submit" type="submit" value="Send" name="submit-comment" />
                     </form>
 
                     <?php

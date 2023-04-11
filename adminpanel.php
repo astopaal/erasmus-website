@@ -8,6 +8,24 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     exit;
 }
 
+if (isset($_POST['duzenle'])) {
+
+    require_once('db/dbhelper.php');
+    $db = new DBController();
+
+    $event_id = $_POST['event_id'];
+    $title = $_POST['title'];
+    $is_active = $_POST['is_active'];
+    $is_active_value = ($is_active == "Aktif") ? 1 : 0;
+
+    $query = "UPDATE events SET title = '$title', is_active = b'$is_active_value' WHERE id = '$event_id'";
+    $result = $db->updateQuery($query);
+
+    if ($result) {
+        echo "<meta http-equiv='refresh' content='0'>";
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -75,7 +93,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
 
                     <!-- event liste start -->
-
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-secondary rounded h-100 p-4">
                             <h6 class="mb-4">Tüm eventler</h6>
@@ -84,54 +101,52 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                                     <tr>
                                         <th scope="col">Event ID</th>
                                         <th scope="col">Event adı</th>
-
                                         <th scope="col">Durum</th>
                                         <th scope="col">İşlemler</th>
-
                                     </tr>
                                 </thead>
                                 <tbody>
-
                                     <?php
-
                                     require_once('db/dbhelper.php');
                                     $db = new DBController();
                                     $query = "SELECT * FROM events";
                                     $results = $db->runQuery($query);
                                     foreach ($results as $result) {
-
                                         ?>
-
                                         <tr>
-                                            <th scope="row">
-                                                <?php echo $result['id'] ?>
-                                            </th>
-                                            <td>
-                                                <?php echo $result['title'] ?>
-                                            </td>
-                                            <td>
-                                                <?php
-                                                if ($result['is_active'] == '1') {
-                                                    echo "Aktif";
-                                                } else {
-                                                    echo "Pasif";
-                                                }
-                                                ?>
-                                            </td>
-                                            <td>
-                                                <div class="btn-group" role="group">
-                                                    <button type="button" class="btn btn-warning">Düzenle</button>
-                                                    <button type="button" class="btn btn-danger">Sil</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    <?php } ?>
+                                            <form method="post">
+                                                <input type="hidden" name="event_id" value="<?php echo $result['id'] ?>">
+                                                <td>
+                                                    <?php echo $result['id'] ?>
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="title" value="<?php echo $result['title'] ?>"
+                                                        class="form-control">
+                                                </td>
+                                                <td>
+                                                    <select name="is_active" class="form-select">
+                                                        <option value="1" <?php if ($result['is_active'] == 1)
+                                                            echo 'selected' ?>>
+                                                                Aktif</option>
+                                                            <option value="0" <?php if ($result['is_active'] == 0)
+                                                            echo 'selected' ?>>
+                                                                Pasif</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <button type="submit" name="duzenle"
+                                                            class="btn btn-primary btn-sm">Düzenle</button>
+                                                    </td>
+                                                </form>
+                                            </tr>
+                                        <?php
+                                    }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
                     </div>
-
-                    <!-- event liste end -->
+                    <!-- event liste bitiş -->
 
                     <!-- event ekle form başlangıç -->
 
@@ -207,7 +222,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                                     }
                                 }
 
-                                $sql = "INSERT INTO events (img, title, content, description, buttonText, is_active, is_deleted ) VALUES ('$target_file','$title', '$content', '$buttonText', '$description', 1, 0)";
+                                $sql = "INSERT INTO events (img, title, content, buttonText, description, is_active, is_deleted ) VALUES ('$target_file','$title', '$content', '$buttonText', '$description', 1, 0)";
                                 $insertid = $db->insertQuery($sql);
 
                                 if (isset($insert_id)) {
@@ -233,8 +248,12 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     </div>
 
     <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <script src="lib/chart/chart.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>

@@ -36,6 +36,7 @@
 
 .events-field {
     display: flex;
+    justify-content: center;
 }
 
 .event-card {
@@ -48,8 +49,9 @@
 }
 
 .event-card img {
-    width: 100%;
-    height: auto;
+    width: 350px;
+    
+    height: 220px;
 }
 
 .event-card div {
