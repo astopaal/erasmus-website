@@ -8,7 +8,7 @@
     padding: 0 15px;
     display:flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
    
   
 }
@@ -35,10 +35,10 @@
 }
 
 .video-play {
-    width: 1280px;
-    height: 720px;
-    align-items: center; 
-    text-align: center;
+    width: 960px;
+    height: 540px;
+    /* align-items: center; 
+    text-align: center; */
     
 }
 

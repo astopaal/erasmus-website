@@ -66,16 +66,16 @@ h1 {
     color: #ffffff;
 }
 
-.video-description {
+.video-content {
     padding: 20px;
+    
 }
 
-.blog-description {
-    margin-bottom: 20px;
-    font-size: 16px;
-    line-height: 1.5;
-    color: #333;
+.video-content p {
+   
+    overflow: hidden;
 }
+
 .watch {
     display: inline-block;
     padding: 10px 20px;
