@@ -26,6 +26,7 @@ if (isset($_POST['duzenle'])) {
     }
 }
 
+
 ?>
 
 <!DOCTYPE html>

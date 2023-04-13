@@ -10,6 +10,61 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
 ?>
 
+
+<?php
+function console_log($output, $with_script_tags = true)
+{
+    $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) .
+        ');';
+    if ($with_script_tags) {
+        $js_code = '<script>' . $js_code . '</script>';
+    }
+    echo $js_code;
+}
+?>
+<?php
+require_once('db/dbhelper.php');
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['duzenle'])) {
+    $db = new DBController();
+    $video_id = $_POST['video_id'];
+    $video_title = $_POST['video-title'];
+    $is_active = $_POST['is_active'];
+    $video_description = $_POST['video-description'];
+    console_log($is_active);
+    // is_active değerini 1 veya 0 olarak güncelleme
+
+    // Update query
+    $query = "UPDATE videos SET video_title = '$video_title', video_description = '$video_description', is_active = $is_active WHERE id = $video_id";
+    $result = $db->updateQuery($query);
+
+    if ($result !== false) {
+        echo "Veri güncellendi.";
+    } else {
+        echo "Bir hata oluştu.";
+    }
+}
+?>
+<?php
+require_once('db/dbhelper.php');
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sil-video'])) {
+    $db = new DBController();
+    $video_id = $_POST['video_id'];
+
+    $query = "DELETE FROM videos WHERE id = $video_id";
+    $result = $db->deleteQuery($query);
+
+    if ($result !== false) {
+        echo "<script>alert('Veri Silindi.');</script>";
+    } else {
+        echo "Bir hata oluştu.";
+    }
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,89 +125,160 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
             <!-- Widgets Start -->
             <div class="container-fluid pt-4 px-4">
-                <div style="justify-content:center; flex-wrap: wrap;" class="row g-4">
+                <div style="display:flex; justify-content:center; align-items:center; flex-wrap: wrap;"
+                    class="col center g-4">
 
 
-                    <div class="col-sm-12 col-xl-6">
+                    <!-- video liste start -->
+                    <div class="col-sm-16 col-xl-10" style="margin-bottom:3%;">
                         <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Tüm Videolar</h6>
+                            <h6 class="mb-4">Tüm videolar</h6>
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Video ID</th>
-                                        <th scope="col">Blog adı</th>
-                                        <th scope="col">Ekleme Tarihi</th>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Video Başlığı</th>
+                                        <th scope="col">İçerik</th>
                                         <th scope="col">Durum</th>
                                         <th scope="col">İşlemler</th>
-
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Estonya eğitim videosu</td>
-                                        <td>14/11/2023</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <div class="btn-group" role="group">
-                                                <button type="button" class="btn btn-warning">Düzenle</button>
-                                                <button type="button" class="btn btn-danger">Sil</button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Estonya eğitim videosu</td>
-                                        <td>14/11/2023</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <div class="btn-group" role="group">
-                                                <button type="button" class="btn btn-warning">Düzenle</button>
-                                                <button type="button" class="btn btn-danger">Sil</button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Estonya eğitim videosu</td>
-                                        <td>14/11/2023</td>
-                                        <td>Pasif</td>
-                                        <td>
-                                            <div class="btn-group" role="group">
-                                                <button type="button" class="btn btn-warning">Düzenle</button>
-                                                <button type="button" class="btn btn-danger">Sil</button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    
+                                    <?php
+                                    require_once('db/dbhelper.php');
+                                    $db = new DBController();
+                                    $query = "SELECT * FROM videos";
+                                    $results = $db->runQuery($query);
+                                    foreach ($results as $result) {
+                                        ?>
+                                        <tr>
+                                            <form method="post">
+                                                <input type="hidden" name="video_id" value="<?php echo $result['id'] ?>">
+                                                <td style="width:2% !important;">
+                                                    <?php echo $result['id'] ?>
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="video-title" value=<?php echo $result['video_title'] ?> class="form-control" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="video-description" value=<?php echo $result['video_description'] ?> class="form-control" />
+                                                </td>
+                                                <td>
+                                                    <select name="is_active" class="form-select">
+                                                        <option value="1" <?php if ($result['is_active'] == 1)
+                                                            echo 'selected' ?>>
+                                                                Aktif</option>
+                                                            <option value="0" <?php if ($result['is_active'] == 0)
+                                                            echo 'selected' ?>>
+                                                                Pasif</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <div class="btn-group" role="group">
+                                                            <button type="submit" name="duzenle"
+                                                                class="btn btn-warning">Düzenle</button>
+                                                            <button type="submit" name="sil-video"
+                                                                class="btn btn-danger">Sil</button>
+                                                        </div>
+                                                    </td>
+
+                                                </form>
+                                            </tr>
+                                        <?php
+                                    }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
                     </div>
+                    <!-- video liste bitiş -->
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-secondary rounded h-100 p-4">
                             <h6 class="mb-4">Video Yükle</h6>
-                            <form>
+                            <form method="POST" enctype="multipart/form-data">
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Başlık</label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1"
-                                        aria-describedby="emailHelp">
-
+                                    <input name="video-title-input" type="text" class="form-control"
+                                        id="exampleInputEmail1" aria-describedby="emailHelp">
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Açıklama</label>
-                                    <textarea style="resize:none;" rows="2" type="text" class="form-control"
-                                        id="exampleInputPassword1"> </textarea>
+                                    <textarea name="video-desc-input" style="resize:none;" rows="2" type="text"
+                                        class="form-control" id="exampleInputPassword1"> </textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">Video :</label>
-                                    <input class="form-control bg-dark" type="file" id="formFile">
+                                    <input name="video-dosya-input" class="form-control bg-dark" type="file"
+                                        id="formFile">
                                 </div>
-
-                                <button type="submit" class="btn btn-info">Kaydet</button>
+                                <div class="mb-3">
+                                    <label for="formFile" class="form-label">Poster :</label>
+                                    <input name="video-poster-input" class="form-control bg-dark" type="file"
+                                        id="formFile">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Kaydet</button>
                             </form>
+
+                            <?php
+
+                            require_once('db/dbhelper.php');
+
+                            $db = new DBController();
+
+                            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+                                $title = $_POST['video-title-input'];
+                                $description = $_POST['video-desc-input'];
+                                $video = $_FILES['video-dosya-input'];
+                                $poster = $_FILES['video-poster-input'];
+
+                                $target_dir = "assets/videos/";
+                                $poster_dir = "assets/images/";
+                                $videoid = $db->runQuery("SELECT MAX(id) FROM videos")[0]["MAX(id)"];
+                                $videoFileType = strtolower(pathinfo($_FILES["video-dosya-input"]["name"], PATHINFO_EXTENSION));
+                                $posterFileType = "png";
+                                $target_video_file = $target_dir . "video" . ($videoid + 1) . ".mp4";
+                                $target_poster_file = $poster_dir . "poster" . ($videoid + 1) . ".png";
+                                $uploadOk = 1;
+
+                                // Video dosyasının türünü kontrol et
+                                $allowed_video_types = array("mp4", "avi", "mov"); // izin verilen video türleri
+                                $video_file_type = strtolower(pathinfo($_FILES["video-dosya-input"]["name"], PATHINFO_EXTENSION));
+                                if (!in_array($video_file_type, $allowed_video_types)) {
+                                    echo "Yüklenen dosya bir video değil.";
+                                    $uploadOk = 0;
+                                }
+
+                                if ($uploadOk == 0) {
+                                    echo "Dosya yüklenirken bir hata oluştu.";
+                                } else {
+                                    if (
+                                        move_uploaded_file($_FILES["video-dosya-input"]["tmp_name"], $target_video_file) &&
+                                        move_uploaded_file($_FILES["video-poster-input"]["tmp_name"], $target_poster_file)
+                                    ) {
+                                        echo "Dosyalar başarıyla yüklendi.";
+
+                                        $date_now = date("Y-m-d H:i:s");
+
+                                        $query = "INSERT INTO videos (video_title, video_description, link, video_image, video_date, is_active, is_deleted) VALUES ('$title', '$description', '$target_video_file', '$target_poster_file', '$date_now', 1, 0)";
+                                        $result = $db->insertQuery($query);
+
+                                        if ($result) {
+                                            echo "Veritabanına kaydedildi.";
+                                        } else {
+                                            echo "Veritabanına kaydedilirken bir hata oluştu.";
+                                        }
+                                    } else {
+                                        echo "Dosya yüklenirken bir hata oluştu.";
+                                    }
+                                }
+                            }
+
+
+                            ?>
                         </div>
                     </div>
+
 
                 </div>
             </div>

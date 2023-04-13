@@ -3,9 +3,7 @@
 
 <div class="header-wrapper">
     <?php
-
     require_once('includes/header.php');
-
     ?>
 </div>
 <?php
@@ -18,7 +16,7 @@ $query = "SELECT * FROM blog WHERE id = $id and is_active = 1";
 $results = $db->runQuery($query);
 $result = $results[0]
 
-    ?>
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -78,6 +76,7 @@ $result = $results[0]
             </div>
         </div> -->
 
+        <!-- BLOG COMMENT INPUT START -->
 
         <form action=<?php echo "blogdetail.php?id=" . $id ?> method="POST" id="enquiry">
             <input class="comment-author-input" name="comment-author-name" id="comment-author-name" type="text"
@@ -86,6 +85,7 @@ $result = $results[0]
                 placeholder="Add your comment!"></textarea>
             <input type="submit" name="submit-comment" value="Add Comment">
         </form>
+
 
         <?php
         if (isset($_POST['submit-comment'])) {
@@ -109,6 +109,12 @@ $result = $results[0]
         }
         ?>
 
+        <!-- BLOG COMMENT INPUT END -->
+
+
+        <!-- BLOG COMMENT SHOW START -->
+
+
         <style>
             #enquiry {
                 position: relative;
@@ -120,7 +126,7 @@ $result = $results[0]
 
             }
 
-            form .comment-textarea {
+            #enquiry .comment-textarea {
                 border-radius: 2px;
                 box-shadow: 0px 2px 11px 0px rgba(0, 0, 0, 0.3);
                 border: 1px solid #e2e6e6;
@@ -131,21 +137,21 @@ $result = $results[0]
                 height: 100px;
             }
 
-            form span.counter {
+            #enquiry span.counter {
                 float: right;
                 color: #f2f2f2;
             }
 
-            form p.info {
+            #enquiry p.info {
                 font-size: 11px;
                 color: #999;
             }
 
-            form p.info>span {
+            #enquiry p.info>span {
                 color: #fff;
             }
 
-            form input[type=submit] {
+            #enquiry input[type=submit] {
                 cursor: pointer;
                 box-shadow: 0px 2px 11px 0px rgba(0, 0, 0, 0.3);
                 border: 1px solid #A8F1FF;
@@ -159,7 +165,7 @@ $result = $results[0]
 
         <?php
 
-        $comments_query = "SELECT * FROM blog_comments where parent_id = $id";
+        $comments_query = "SELECT * FROM blog_comments where parent_id = $id and is_approved = b'1'";
         $comment_results = $db->runQuery($comments_query);
 
         ?>
@@ -167,30 +173,43 @@ $result = $results[0]
         <div class="comments-container">
 
             <div class="comments-field">
-                <h3>All comments</h3>
+
                 <?php
-
-                foreach ($comment_results as $comment_result) {
+                if (($comment_results) != NULL) {
                     ?>
-                    <div class="comment-card">
-                        <div class="comment-head">
-                            <span class="show-author-name">
-                                <?php echo $comment_result['author']; ?>
-                            </span>
-                            <span class="show-comment-date"><?php echo $comment_result['comment_date']; ?></span>
+                    <h3>All comments</h3>
+                    <?php
+                    foreach ($comment_results as $comment_result) {
+                        ?>
+                        <div class="comment-card">
+                            <div class="comment-head">
+                                <span class="show-author-name">
+                                    <?php echo $comment_result['author']; ?>
+                                </span>
+                                <span class="show-comment-date">
+                                    <?php echo $comment_result['comment_date']; ?>
+                                </span>
+                            </div>
+                            <div class="show-comment-content">
+                                <p class="show-content-p">
+                                    <?php echo $comment_result['content']; ?>
+                                </p>
+                            </div>
                         </div>
-                        <div class="show-comment-content">
-                            <p class="show-content-p">
-                                <?php echo $comment_result['content']; ?>
-                            </p>
-                        </div>
-                    </div>
 
-                <?php } ?>
+                    <?php }
+                } else {
+                    ?>
+                    <h3>No Comments</h3>
+                    <?php
+                } ?>
             </div>
         </div>
 
     </div>
+
+
+    <!-- BLOG COMMENT SHOW START -->
 
     <div>
         <?php
