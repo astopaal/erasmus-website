@@ -1,6 +1,10 @@
+* {
+    margin:0;
+}
+
 .blog-container {
     max-width: 800px;
-    margin: 115px auto;
+    margin: 125px auto;
     padding: 0 15px;
     display: flex;
     flex-direction: column;

@@ -8,14 +8,25 @@
     <script src="assets/scripts/script.js"></script>
 </head>
 
+<?php
+
+        require_once('db/dbhelper.php');
+        $db = new DBController();
+        $query = "SELECT * FROM header";
+        $results = $db->runQuery($query);
+        $result = $results['0']
+        ?>
+
 <body>
     <div class="top">
         <div class="top-elements">
-            <div class="left-top-item">+90 538 495 65 30</div>
+            <div class="left-top-item"><?php echo $result['phone']; ?></div>
 
-            <div class="right-top-item">astopaal@gmail.com</div>
+            <div class="right-top-item"><?php echo $result['mail']; ?></div>
         </div>
     </div>
+
+    
     <nav class="navbar-outer">
         <div class="inner-nav-items">
             <div class="nav-left">
@@ -31,7 +42,7 @@
                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_North_Macedonia.svg/1920px-Flag_of_North_Macedonia.svg.png" /></a>
 
                 </div>
-                <div class="mid-title">High Quality Mobilities, Warm Hospitality</div>
+                <div class="mid-title"><?php echo $result['title']; ?></div>
             </div>
             <div class="nav-links">
 

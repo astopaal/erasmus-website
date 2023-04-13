@@ -38,7 +38,7 @@
                         <p class="description">
                             <?php echo $result['description'] ?>
                         </p>
-                        <a href="/events/<?php echo $result['id'] ?>"><?php echo $result['buttonText'] ?></a>
+                        <a href="eventdetail.php?id=<?php echo $result['id'] ?>"><?php echo $result['buttonText'] ?></a>
                         <hr>
                     </div>
                 </div>

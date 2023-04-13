@@ -7,6 +7,15 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header('Location: adminlogin.php');
     exit;
 }
+function console_log($output, $with_script_tags = true)
+{
+    $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) .
+        ');';
+    if ($with_script_tags) {
+        $js_code = '<script>' . $js_code . '</script>';
+    }
+    echo $js_code;
+}
 
 if (isset($_POST['duzenle'])) {
 
@@ -16,9 +25,8 @@ if (isset($_POST['duzenle'])) {
     $event_id = $_POST['event_id'];
     $title = $_POST['title'];
     $is_active = $_POST['is_active'];
-    $is_active_value = ($is_active == "Aktif") ? 1 : 0;
-
-    $query = "UPDATE events SET title = '$title', is_active = b'$is_active_value' WHERE id = '$event_id'";
+    console_log($is_active);
+    $query = "UPDATE events SET title = '$title', is_active = $is_active WHERE id = '$event_id'";
     $result = $db->updateQuery($query);
 
     if ($result) {

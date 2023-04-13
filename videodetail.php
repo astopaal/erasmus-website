@@ -41,7 +41,7 @@ $result = $results[0]
 
         <div class="video-link">
 
-            <video controls width="450" poster="https://picsum.photos/450/253">
+            <video class="video" controls width="850" poster="https://picsum.photos/450/253">
                 <source data-src=<?php echo $result['link'] ?> type="video/mp4">
             </video>
 
@@ -56,62 +56,64 @@ $result = $results[0]
 
         <!-- VİDEO COMMENT INPUT START -->
 
-        <form action=<?php echo "videodetail.php?id=" . $id ?> method="POST" id="enquiry">
-            <input class="comment-author-input" name="comment-author-name" id="comment-author-name" type="text"
-                placeholder="Full name...">
-            <textarea class="comment-textarea" maxlength="140" name="comment-input" id="comment-input"
-                placeholder="Add your comment!"></textarea>
-            <input type="submit" name="submit-comment" value="Add Comment">
-        </form>
+        <div class="video-comment-input-field">
+            <form action=<?php echo "videodetail.php?id=" . $id ?> method="POST" id="enquiry">
+                <input class="comment-author-input" name="comment-author-name" id="comment-author-name" type="text"
+                    placeholder="Full name...">
+                <textarea class="comment-textarea" maxlength="140" name="comment-input" id="comment-input"
+                    placeholder="Add your comment!"></textarea>
+                <input type="submit" name="submit-comment" value="Add Comment">
+            </form>
 
-        <?php
-        if (isset($_POST['submit-comment'])) {
-            $author = $_POST['comment-author-name'];
-            $content = $_POST['comment-input'];
-            $parent_id = $id;
-            $is_active = 1;
-            $is_deleted = 0;
-            $is_approved = 0;
-            $date_now = date("Y-m-d H:i:s");
+            <?php
+            if (isset($_POST['submit-comment'])) {
+                $author = $_POST['comment-author-name'];
+                $content = $_POST['comment-input'];
+                $parent_id = $id;
+                $is_active = 1;
+                $is_deleted = 0;
+                $is_approved = 0;
+                $date_now = date("Y-m-d H:i:s");
 
-            require_once('db/dbhelper.php');
-            $db_ = new DBController();
-            $querycomment = "INSERT INTO video_comments (parent_id, author, content, is_active, is_deleted, is_approved, comment_date) VALUES ('$parent_id', '$author', '$content', '$is_active', b'$is_deleted', b'$is_approved', '$date_now')";
-            $resultcomment = $db_->insertQuery($querycomment);
-            if ($resultcomment) {
-                echo "<p style='margin-top:1%;'>Your comment is noted. It will be published after approval by the admins.</p>";
-            } else {
-                echo "Error adding comment!";
+                require_once('db/dbhelper.php');
+                $db_ = new DBController();
+                $querycomment = "INSERT INTO video_comments (parent_id, author, content, is_active, is_deleted, is_approved, comment_date,parent) VALUES ('$parent_id', '$author', '$content', '$is_active', b'$is_deleted', b'$is_approved', '$date_now', 'video')";
+                $resultcomment = $db_->insertQuery($querycomment);
+                if ($resultcomment) {
+                    echo "<p style='margin-top:1%;'>Your comment is noted. It will be published after approval by the admins.</p>";
+                } else {
+                    echo "Error adding comment!";
+                }
             }
-        }
-        ?>
+            ?>
 
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
 
-                var video = document.querySelector("video");
-                var source = video.querySelector("source");
+                    var video = document.querySelector("video");
+                    var source = video.querySelector("source");
 
-                video.addEventListener("click", function () {
-                    if (!source.getAttribute("src")) {
-                        source.setAttribute("src", source.getAttribute("data-src"));
-                        video.load();
-                    }
-                    if (video.paused) {
-                        video.play();
-                    } else {
-                        video.pause();
-                    }
+                    video.addEventListener("click", function () {
+                        if (!source.getAttribute("src")) {
+                            source.setAttribute("src", source.getAttribute("data-src"));
+                            video.load();
+                        }
+                        if (video.paused) {
+                            video.play();
+                        } else {
+                            video.pause();
+                        }
 
-                    video.classList.add("no-blur")
+                        video.classList.add("no-blur")
 
 
+                    });
+                    video.addEventListener("pause", function () {
+                        video.classList.remove("no-blur"); // .blur sınıfını kaldır
+                    });
                 });
-                video.addEventListener("pause", function () {
-                    video.classList.remove("no-blur"); // .blur sınıfını kaldır
-                });
-            });
-        </script>
+            </script>
+        </div>
 
         <!-- VİDEO COMMENT INPUT END -->
 
@@ -211,10 +213,17 @@ $result = $results[0]
 
 
         <!-- VİDEO COMMENT SHOW START -->
+
+
+
+    </div>
+    <div>
+        <?php
+        require_once('includes/footer.php');
+        ?>
+    </div>
 </body>
 
-<?php
-require_once('includes/footer.php');
-?>
+
 
 </html>

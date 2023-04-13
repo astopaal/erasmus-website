@@ -6,6 +6,7 @@
     require_once('includes/header.php');
     ?>
 </div>
+
 <?php
 
 $id = $_GET['id'];
@@ -60,22 +61,6 @@ $result = $results[0]
             </p>
         </div>
 
-        <!-- <div class="comment-container">
-            <div class="blog-comment-card">
-                <h2>Add comment</h1>
-
-                    <form id="comment-form" name="comment-form" class="comment-form" >
-                        <input class="comment-author-input" name="comment-author-name" id="comment-author-name" type="text"
-                            placeholder="Full name...">
-                        <textarea class="comment-input" name="comment-input" id="comment-input" cols="30" rows="5"
-                            placeholder="Your comment..."></textarea>
-                        <input class="button-send" id="comment-submit" type="submit" value="Send" name="submit-comment" />
-                    </form>
-
-                    
-            </div>
-        </div> -->
-
         <!-- BLOG COMMENT INPUT START -->
 
         <form action=<?php echo "blogdetail.php?id=" . $id ?> method="POST" id="enquiry">
@@ -99,7 +84,7 @@ $result = $results[0]
 
             require_once('db/dbhelper.php');
             $db_ = new DBController();
-            $querycomment = "INSERT INTO blog_comments (parent_id, author, content, is_active, is_deleted, is_approved, comment_date) VALUES ('$parent_id', '$author', '$content', '$is_active', b'$is_deleted', b'$is_approved', '$date_now')";
+            $querycomment = "INSERT INTO blog_comments (parent_id, author, content, is_active, is_deleted, parent, is_approved, comment_date) VALUES ('$parent_id', '$author', '$content', '$is_active', b'$is_deleted', 'blog', b'$is_approved', '$date_now')";
             $resultcomment = $db_->insertQuery($querycomment);
             if ($resultcomment) {
                 echo "<p style='margin-top:1%;'>Your comment is noted. It will be published after approval by the admins.</p>";
