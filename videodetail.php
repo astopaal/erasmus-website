@@ -118,110 +118,142 @@ $result = $results[0]
         <!-- VİDEO COMMENT INPUT END -->
 
 
-        <!-- VİDEO COMMENT SHOW START -->
 
-
-        <style>
-            #enquiry {
-                position: relative;
-                top: 40px;
-                border-radius: 4px;
-                width: 400px;
-                height: 180px;
-                margin: 0 0 auto;
-
-            }
-
-            #enquiry .comment-textarea {
-                border-radius: 2px;
-                box-shadow: 0px 2px 11px 0px rgba(0, 0, 0, 0.3);
-                border: 1px solid #e2e6e6;
-                margin: 10px 0 10px 0;
-                font-family: 'Open Sans', sans-serif;
-                outline: none;
-                width: 395px;
-                height: 100px;
-            }
-
-            #enquiry span.counter {
-                float: right;
-                color: #f2f2f2;
-            }
-
-            #enquiry p.info {
-                font-size: 11px;
-                color: #999;
-            }
-
-            #enquiry p.info>span {
-                color: #fff;
-            }
-
-            #enquiry input[type=submit] {
-                cursor: pointer;
-                box-shadow: 0px 2px 11px 0px rgba(0, 0, 0, 0.3);
-                border: 1px solid #A8F1FF;
-                border-radius: 2px;
-                background-color: #0093B0;
-                color: #fff;
-                float: right;
-                padding: 10px;
-            }
-        </style>
-
-        <?php
-
-        $comments_query = "SELECT * FROM video_comments where parent_id = $id and is_approved = b'1'";
-        $comment_results = $db->runQuery($comments_query);
-
-        ?>
-        <div class="comments-container">
-            <div class="comments-field">
-                <?php
-                if (($comment_results) != NULL) {
-                    ?>
-                    <h3>All comments</h3>
-                    <?php
-                    foreach ($comment_results as $comment_result) {
-                        ?>
-                        <div class="comment-card">
-                            <div class="comment-head">
-                                <span class="show-author-name">
-                                    <?php echo $comment_result['author']; ?>
-                                </span>
-                                <span class="show-comment-date">
-                                    <?php echo $comment_result['comment_date']; ?>
-                                </span>
-                            </div>
-                            <div class="show-comment-content">
-                                <p class="show-content-p">
-                                    <?php echo $comment_result['content']; ?>
-                                </p>
-                            </div>
-                        </div>
-
-                    <?php }
-                } else {
-                    ?>
-                    <h3>No Comments</h3>
-                    <?php
-                } ?>
-            </div>
-        </div>
-
-
-
-
-        <!-- VİDEO COMMENT SHOW START -->
 
 
 
     </div>
+    <!-- VİDEO COMMENT SHOW START -->
+
+
+    <style>
+        #enquiry {
+            position: relative;
+            top: 40px;
+            border-radius: 4px;
+            width: 400px;
+            height: 180px;
+            margin: 0 0 auto;
+
+        }
+
+        #enquiry .comment-textarea {
+            border-radius: 2px;
+            box-shadow: 0px 2px 11px 0px rgba(0, 0, 0, 0.3);
+            border: 1px solid #e2e6e6;
+            margin: 10px 0 10px 0;
+            font-family: 'Open Sans', sans-serif;
+            outline: none;
+            width: 395px;
+            height: 100px;
+        }
+
+        #enquiry span.counter {
+            float: right;
+            color: #f2f2f2;
+        }
+
+        #enquiry p.info {
+            font-size: 11px;
+            color: #999;
+        }
+
+        #enquiry p.info>span {
+            color: #fff;
+        }
+
+        #enquiry input[type=submit] {
+            cursor: pointer;
+            box-shadow: 0px 2px 11px 0px rgba(0, 0, 0, 0.3);
+            border: 1px solid #A8F1FF;
+            border-radius: 2px;
+            background-color: #0093B0;
+            color: #fff;
+            float: right;
+            padding: 10px;
+        }
+    </style>
+
+    <?php
+
+    $comments_query = "SELECT * FROM video_comments where parent_id = $id and is_approved = b'1'";
+    $comment_results = $db->runQuery($comments_query);
+
+    ?>
+    <div class="comments-container">
+        <div class="comments-field">
+            <?php
+            if (($comment_results) != NULL) {
+                ?>
+                <h3>All comments</h3>
+                <?php
+                foreach ($comment_results as $comment_result) {
+                    ?>
+                    <div class="comment-card">
+                        <div class="comment-head">
+                            <span class="show-author-name">
+                                <?php echo $comment_result['author']; ?>
+                            </span>
+                            <span class="show-comment-date">
+                                <?php echo $comment_result['comment_date']; ?>
+                            </span>
+                        </div>
+                        <div class="show-comment-content">
+                            <p class="show-content-p">
+                                <?php echo $comment_result['content']; ?>
+                            </p>
+                        </div>
+                    </div>
+
+                <?php }
+            } else {
+                ?>
+                <h3>No Comments</h3>
+                <?php
+            } ?>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            var comment = $('form#enquiry textarea'),
+                counter = '',
+                counterValue = 140, //change this to set the max character count
+                minCommentLength = 10, //set minimum comment length
+                $commentValue = comment.val(),
+                $commentLength = $commentValue.length,
+                submitButton = $('form#enquiry input[type=submit]').hide();
+
+            $('form').prepend('<span style="color:black;" class="counter"></span>').append('<p class="info">Min length: <span style="color:black"></span></p>');
+            counter = $('span.counter');
+            counter.html(counterValue); //display your set max length
+            comment.attr('maxlength', counterValue); //apply max length to textarea
+            $('form').find('p.info > span').html(minCommentLength);
+            // everytime a key is pressed inside the textarea, update counter
+            comment.keyup(function () {
+                var $this = $(this);
+                $commentLength = $this.val().length; //get number of characters
+                counter.html(counterValue - $commentLength); //update counter
+                if ($commentLength > minCommentLength - 1) {
+                    submitButton.fadeIn(200);
+                } else {
+                    submitButton.fadeOut(200);
+                }
+            });
+        });
+    </script>
+
+
+
+    <!-- VİDEO COMMENT SHOW END -->
     <div>
         <?php
         require_once('includes/footer.php');
         ?>
     </div>
+
 </body>
 
 

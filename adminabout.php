@@ -46,12 +46,12 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 <body>
     <div class="container-fluid position-relative d-flex p-0">
         <!-- Spinner Start -->
-        <div id="spinner"
+        <!-- <div id="spinner"
             class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
-        </div>
+        </div> -->
         <!-- Spinner End -->
 
 
@@ -76,35 +76,95 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-secondary rounded h-100 p-4">
                             <h6 class="mb-4">About Sayfası Ayarları</h6>
-                            <form method="POST">
+                            <form method="POST" enctype="multipart/form-data">
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Büyük Başlık:</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1"
-                                        aria-describedby="emailHelp">
+                                    <input type="text" name="buyuk-baslik" class="form-control"
+                                        id="exampleInputPassword1">
+
 
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Mavi yazı:</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1">
+                                    <input type="text" name="mavi-yazi" class="form-control" id="exampleInputPassword1">
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Küçük Başlık:</label>
-                                    <textarea style="resize:none;" rows="6" type="text" class="form-control"
-                                        id="exampleInputPassword1"> </textarea>
+                                    <input type="text" name="kucuk-baslik" class="form-control"
+                                        id="exampleInputPassword1">
+
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">İleitşim Buton Yazısı:</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1">
+                                    <label for="exampleInputPassword1" class="form-label">İçerik:</label>
+                                    <textarea style="resize:none;" rows="6" name="content" type="text"
+                                        class="form-control" id="exampleInputPassword1"> </textarea>
+
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">İletişim Buton Yazısı:</label>
+                                    <input type="text" name="button-text" class="form-control"
+                                        id="exampleInputPassword1">
                                 </div>
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">Fotoğraf seç:</label>
-                                    <input class="form-control bg-dark" type="file" id="formFile">
+                                    <input class="form-control bg-dark" name="img" type="file" id="formFile">
                                 </div>
-                                <button type="submit" class="btn btn-primary">Kaydet</button>
+                                <button type="submit" name="kaydet" class="btn btn-primary">Kaydet</button>
                             </form>
                         </div>
                     </div>
                     <!-- about form bitiş -->
+
+                    <?php
+
+                    require_once('db/dbhelper.php');
+
+                    $db = new DBController();
+
+                    if (isset($_POST['kaydet'])) {
+                        $buyuk_baslik = $_POST['buyuk-baslik'];
+                        $mavi_yazi = $_POST['mavi-yazi'];
+                        $kucuk_baslik = $_POST['kucuk-baslik'];
+                        $button_text = $_POST['button-text'];
+                        $content = $_POST['content'];
+                        $img = $_FILES['img'];
+
+                        $target_dir = "assets/images/";
+                        $target_file = $target_dir . "about.jpg";
+                        $uploadOk = 1;
+                        $imageFileType = strtolower(pathinfo($_FILES["img"]["name"], PATHINFO_EXTENSION));
+
+                        if ($_FILES["img"]["error"] == UPLOAD_ERR_OK) {
+                            $check = getimagesize($_FILES["img"]["tmp_name"]);
+                            if ($check !== false) {
+                                $uploadOk = 1;
+                            } else {
+                                echo "Yüklenen dosya bir resim değil.";
+                                $uploadOk = 0;
+                            }
+                        }
+
+                        if ($uploadOk == 0) {
+                            echo "Dosya yüklenirken bir hata oluştu.";
+                        } else {
+                            if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
+                                echo "Dosya başarıyla yüklendi.";
+                            } else {
+                                echo "Dosya yüklenirken bir hata oluştu.";
+                            }
+                        }
+
+                        $sql = "UPDATE about SET big_title = '$buyuk_baslik', bluetext = '$mavi_yazi', small_title='$kucuk_baslik', content='$content', button_text='$button_text', img ='$target_file' WHERE id=1"; // SQL sorgusunu düzenle
+                        $insertid = $db->updateQuery($sql);
+
+                        if (isset($insertid)) {
+                            echo '<script>alert("düzenlendi!"); window.location.href = "adminpanel.php";</script>';
+                        }
+                    }
+
+
+                    ?>
 
                 </div>
             </div>

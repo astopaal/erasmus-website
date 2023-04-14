@@ -40,6 +40,7 @@
 }
 
 .event-card {
+    max-width: 397px;
     box-sizing: border-box;
     background: #fff;
     border-radius: 5px;
@@ -50,11 +51,17 @@
     transition-duration: 500ms;
 }
 
+.event-card .description {
+    min-height: 70px;
+}
+
+
 .event-card img {
     width: 350px;
-
     height: 220px;
 }
+
+
 
 .event-card div {
     width: 100%;

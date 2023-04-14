@@ -6,8 +6,8 @@
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="assets/styles/events.css" >
-    <link rel="stylesheet" href="assets/styles/style.css" >
+    <link rel="stylesheet" href="assets/styles/events.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
     <link rel="stylesheet" href="assets/styles/style-foot.css">
     <link rel="stylesheet" href="assets/styles/home.css" media="print" onload="this.media='all'">
 </head>
@@ -44,13 +44,16 @@
                 ?>
 
                 <div class="event-card">
-                    <img src=<?php echo $result['img'] ?> alt="event-img" />
+                    <div class="event-img">
+                        <img src=<?php echo $result['img'] ?> alt="event-img" />
+                    </div>
                     <div>
                         <p class="title">
                             <?php echo $result['title'] ?>
                         </p>
                         <p class="description">
-                            <?php echo $result['description'] ?>
+                        <?php echo substr($result['description'], 0, 100) . '...' ?>
+
                         </p>
                         <a href="eventdetail.php?id=<?php echo $result['id'] ?>"><?php echo $result['buttonText'] ?></a>
                         <hr>

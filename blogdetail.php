@@ -163,6 +163,7 @@ $result = $results[0]
                 if (($comment_results) != NULL) {
                     ?>
                     <h3>All comments</h3>
+                    <br>
                     <?php
                     foreach ($comment_results as $comment_result) {
                         ?>

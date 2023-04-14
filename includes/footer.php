@@ -58,7 +58,7 @@
     $comment = $_POST["footer-comment"];
 
     $db = new DBController();
-    $query = "INSERT INTO messages (name, surname, mail, message, has_been_read) VALUES ('$name','$surname' ,'$email' ,'$comment', b'0' )";
+    $query = "INSERT INTO messages (name, surname, mail, message) VALUES ('$name','$surname' ,'$email' ,'$comment')";
     $insert = $db->insertQuery($query);
 
     if ($insert) {

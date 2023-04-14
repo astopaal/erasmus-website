@@ -13,7 +13,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 <!-- Sidebar Start -->
 <div class="sidebar pe-4 pb-3">
     <nav class="navbar bg-secondary navbar-dark">
-        <a href="index.php" class="navbar-brand mx-4 mb-3">
+        <a href="adminlogin.php" class="navbar-brand mx-4 mb-3">
             <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>Erasmus Web</h3>
         </a>
         <div class="d-flex align-items-center ms-4 mb-4">
@@ -34,22 +34,12 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             <a href="adminblogs.php" class="nav-item nav-link"><i class="fa fa-file me-2"></i>Blog Yönetimi</a>
             <a href="adminvideos.php" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Videolar</a>
             <a href="admincomments.php" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Yorumlar</a>
-
-            <a href="widget.php" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
-            <a href="form.php" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
-            <a href="table.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>
-            <a href="chart.php" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
-                        class="far fa-file-alt me-2"></i>Pages</a>
-                <div class="dropdown-menu bg-transparent border-0">
-                    <a href="signin.php" class="dropdown-item">Sign In</a>
-                    <a href="signup.php" class="dropdown-item">Sign Up</a>
-                    <a href="404.php" class="dropdown-item">404 Error</a>
-                    <a href="blank.php" class="dropdown-item">Blank Page</a>
-                </div>
-            </div>
+            <a href="adminmessages.php" class="nav-item nav-link"><i class="fas fa-envelope me-2"></i>Mesajlar</a>
+            <a href="adminapplicants.php" class="nav-item nav-link"><i class="fas fa-envelope me-2"></i>Başvurular</a>
+            <a href="adminslider.php" class="nav-item nav-link"><i class="fas fa-envelope me-2"></i>Slider</a>
+            <a href="logout.php" class="btn btn-warning m-2" style="margin-left:10% !important;">ÇIKIŞ</a>
         </div>
+
     </nav>
 </div>
 <!-- Sidebar End -->

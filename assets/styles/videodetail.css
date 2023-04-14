@@ -67,7 +67,7 @@
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
     -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
-    margin-bottom: 5px;
+    margin-bottom: 2%;
 }
 
 .comment-head {
@@ -105,4 +105,9 @@
 .video-comment-input-field {
     margin-right: auto;
     margin-left: 14%;
+}
+.comments-container {
+    padding-left: 14%;
+    padding-right: 44%;
+
 }

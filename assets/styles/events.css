@@ -29,6 +29,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-right: 10%;
+    padding-left: 10%;  
+
+
 }
 
 .event-event-container .events-title {
@@ -45,11 +49,10 @@
     justify-content: center;
 }
 
-.event-event-container .events-field2 {
-    display: flex;
-}
 
 .event-event-container .event-card {
+    max-width: 397px;
+    min-height: 455px;
     box-sizing: border-box;
     margin: 20px;
     height: 50%;
@@ -64,6 +67,10 @@
 .event-event-container  .event-card img {
     width: 350;
     height: 200;
+
+}
+.event-event-container  .event-card .description  {
+    min-height: 70px;
 
 }
 

@@ -188,7 +188,7 @@ if (isset($_POST['duzenle'])) {
                                     <label for="formFile" class="form-label">Fotoğraf seç:</label>
                                     <input name="img" class="form-control bg-dark" type="file" id="formFile">
                                 </div>
-                                <button type="submit" class="btn btn-primary">Kaydet</button>
+                                <button name="kaydet" type="submit" class="btn btn-primary">Kaydet</button>
                             </form>
 
                             <?php
@@ -197,7 +197,7 @@ if (isset($_POST['duzenle'])) {
 
                             $db = new DBController();
 
-                            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                            if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['kaydet']) )  {
 
                                 $title = $_POST['title'];
                                 $content = $_POST['content'];
