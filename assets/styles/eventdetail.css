@@ -25,6 +25,10 @@
     margin-right: auto;
 }
 
+.event-desc-box {
+    margin: right 0;
+}
+
 .event-desc p{
     padding-left: 10%;
 
