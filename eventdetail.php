@@ -50,6 +50,7 @@ $headerResult = $headerResults['0']
         <h2 class="event-title-h2">
             <?php echo $result['title'] ?>
         </h2>
+      <div class="event-desc-box">
         <div class="event-desc">
             <p>
                 <?php echo $result['description'] ?>
@@ -61,6 +62,7 @@ $headerResult = $headerResults['0']
             </p>
         </div>
         <hr style="width: 900px;" />
+        </div>  
         <div class="contact-field">
 
             <h3>Contact Details: </h3>
