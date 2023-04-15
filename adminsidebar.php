@@ -29,7 +29,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             </div>
         </div>
         <div class="navbar-nav w-100">
-            <a href="adminpanel.php" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2"></i>Events</a>
+            <a href="adminpanel.php" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2"></i>Eventler</a>
             <a href="adminabout.php" class="nav-item nav-link "><i class="fa fa-chart-pie me-2"></i>About</a>
             <a href="adminblogs.php" class="nav-item nav-link"><i class="fa fa-file me-2"></i>Blog Yönetimi</a>
             <a href="adminvideos.php" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Videolar</a>

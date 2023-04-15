@@ -46,12 +46,12 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 <body>
     <div class="container-fluid position-relative d-flex p-0">
         <!-- Spinner Start -->
-        <!-- <div id="spinner"
+        <div id="spinner"
             class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
-        </div> -->
+        </div>
         <!-- Spinner End -->
 
 
@@ -81,8 +81,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                                     <label for="exampleInputEmail1" class="form-label">Büyük Başlık:</label>
                                     <input type="text" name="buyuk-baslik" class="form-control"
                                         id="exampleInputPassword1">
-
-
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Mavi yazı:</label>
@@ -92,15 +90,12 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                                     <label for="exampleInputPassword1" class="form-label">Küçük Başlık:</label>
                                     <input type="text" name="kucuk-baslik" class="form-control"
                                         id="exampleInputPassword1">
-
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">İçerik:</label>
                                     <textarea style="resize:none;" rows="6" name="content" type="text"
                                         class="form-control" id="exampleInputPassword1"> </textarea>
-
                                 </div>
-
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">İletişim Buton Yazısı:</label>
                                     <input type="text" name="button-text" class="form-control"

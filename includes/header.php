@@ -6,6 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="assets/scripts/script.js"></script>
+    <style>
+        .mid-title {
+            margin:0 auto;
+        }
+    </style>
 </head>
 
 <?php
@@ -21,7 +26,6 @@
     <div class="top">
         <div class="top-elements">
             <div class="left-top-item"><?php echo $result['phone']; ?></div>
-
             <div class="right-top-item"><?php echo $result['mail']; ?></div>
         </div>
     </div>
@@ -58,7 +62,6 @@
                 <ul>
 
                     <?php
-
                     foreach ($results as $result) {
                         ?>
                         <li><a href=<?php echo $result['url'] ?>><?php echo $result['name'] ?></a></li>

@@ -71,7 +71,7 @@
         <h1>Last 4 Videos</h1>
         <div class="video-field">
             <div class="video-card">
-                <video width="450" poster="https://picsum.photos/450/253">
+                <video controls width="450" poster="https://picsum.photos/450/253">
                     <source data-src="assets/videos/video1.mp4" type="video/mp4">
                 </video>
             </div>

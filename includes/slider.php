@@ -15,6 +15,7 @@
 
         img {
             vertical-align: middle;
+            max-height: 438px;
         }
 
         .slideshow-container {
@@ -137,9 +138,13 @@ foreach ($results as $key => $result) {
 <br>
 
 <div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
+<?php
+
+foreach ($results as $key => $result) {
+    ?>
+    <span class="dot" onclick="currentSlide($key+1)"></span>
+<?php } ?>
+
 </div>
 
 <script>

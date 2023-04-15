@@ -45,6 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['duzenle'])) {
     }
 }
 ?>
+
 <?php
 require_once('db/dbhelper.php');
 
@@ -216,7 +217,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sil-video'])) {
                                     <input name="video-poster-input" class="form-control bg-dark" type="file"
                                         id="formFile">
                                 </div>
-                                <button type="submit" class="btn btn-primary">Kaydet</button>
+                                <button type="submit" name="video-yeni-kaydet" class="btn btn-primary">Kaydet</button>
                             </form>
 
                             <?php
@@ -225,7 +226,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sil-video'])) {
 
                             $db = new DBController();
 
-                            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                            if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['video-yeni-kaydet'])) {
 
                                 $title = $_POST['video-title-input'];
                                 $description = $_POST['video-desc-input'];
