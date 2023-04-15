@@ -16,7 +16,7 @@ require_once('pages/home.php');
     <link rel="stylesheet" href="assets/styles/events.css" >
     <link rel="stylesheet" href="assets/styles/style.css" >
     <link rel="stylesheet" href="assets/styles/style-foot.css">
-    <title>Erasmus+</title>
+    <title>Project Samp</title>
 </head>
 
 <body>
